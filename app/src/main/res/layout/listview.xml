@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/phoneNumListView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/phoneImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/person"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/numTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="num"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
