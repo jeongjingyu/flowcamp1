@@ -1,6 +1,8 @@
 package com.example.flowcamp1;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -15,6 +18,7 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import org.json.JSONArray;
@@ -36,12 +40,13 @@ public class Fragment1 extends Fragment {
     ExpandableListAdapter expandableListAdapter2;
     ExpandableListAdapter expandableListAdapter3;
     ArrayList<list_form> items = new ArrayList<list_form>();
-    ArrayList<list_form> items2 = new ArrayList<list_form>();
+    ArrayList<list_form> items2;
     HashMap<String, String> child = new HashMap<String, String>();
-    HashMap<String, String> child2 = new HashMap<String, String>();
+    HashMap<String, String> child2;
     EditText editSearch;
     private ArrayList<String> list;
     private List<String> arraylist;
+    androidx.appcompat.widget.AppCompatButton callButton;
 
     public Fragment1() {
 
@@ -55,6 +60,7 @@ public class Fragment1 extends Fragment {
         AssetManager assetManager = getActivity().getAssets();
         View tabOneView = inflater.inflate(R.layout.fragment1, container, false);
         list = new ArrayList<String>();
+        callButton = (AppCompatButton) tabOneView.findViewById(R.id.callButton);
 
         try {
             InputStream is = assetManager.open("phone_num.json");
@@ -95,7 +101,6 @@ public class Fragment1 extends Fragment {
                 child.put(items.get(i).name, items.get(i).num);
             }
 
-
             arraylist = new ArrayList<String>();
             arraylist.addAll(list);
 
@@ -126,24 +131,10 @@ public class Fragment1 extends Fragment {
             editSearch.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    checkEmpty();
-                    Log.d("before", "before");
-                    if (editSearch.getText().toString().equals("") || editSearch.getText().toString() == null) {
-                        expandableListAdapter3 = new ListViewAdapter(getContext(), items, child);
-                        listview.invalidate();
-                        listview.setAdapter(expandableListAdapter3);
-                    }
                 }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    checkEmpty();
-                    Log.d("on", "on");
-                    if (editSearch.getText().toString().equals("") || editSearch.getText().toString() == null) {
-                        expandableListAdapter3 = new ListViewAdapter(getContext(), items, child);
-                        listview.invalidate();
-                        listview.setAdapter(expandableListAdapter3);
-                    }
                 }
 
                 @Override
@@ -161,6 +152,8 @@ public class Fragment1 extends Fragment {
                     }
 
                     else{
+                        items2 = new ArrayList<list_form>();
+                        child2 = new HashMap<String, String>();
                         for (int i=0; i < arraylist.size(); i++) {
                             if (arraylist.get(i).toLowerCase().contains(charText)) {
                                 list.add(arraylist.get(i));
@@ -178,21 +171,30 @@ public class Fragment1 extends Fragment {
                 }
 
                 public void checkEmpty() {
-                    Log.d("check", "check");
                     if (editSearch.getText().toString().equals("") || editSearch.getText().toString() == null) {
+                        Log.d("text", editSearch.getText().toString());
+                        Log.d("text length", String.valueOf(editSearch.getText().length()));
+                        Log.d("i", listview.getAdapter().toString());
 
-                        Log.d("i", String.valueOf(items.size()));
-                        expandableListAdapter3 = new ListViewAdapter(getContext(), items, child);
-                        listview.invalidate();
-                        listview.setAdapter(expandableListAdapter3);
+                        expandableListAdapter = new ListViewAdapter(getContext(), items, child);
+                        listview.setAdapter(expandableListAdapter);
                     }
                 }
-
             });
 
             } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
+
+        callButton.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+                //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse()
+            }
+
+        });
 
         return tabOneView; // frame view return
 
@@ -216,4 +218,5 @@ class list_form {
         return num;
     }
 }
+
 
