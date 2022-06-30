@@ -7,8 +7,8 @@
     <item android:title="Images"
         android:icon="@drawable/ic_baseline_image_24"
         android:id="@+id/images"/>
-    <item android:title="Call by Image"
-        android:icon="@drawable/ic_baseline_grade_24"
-        android:id="@+id/call_by_image"/>
+    <item android:title="Map"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:id="@+id/map"/>
 
 </menu>

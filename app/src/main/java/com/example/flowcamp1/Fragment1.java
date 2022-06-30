@@ -101,6 +101,7 @@ public class Fragment1 extends Fragment {
                 child.put(items.get(i).name, items.get(i).num);
             }
 
+
             arraylist = new ArrayList<String>();
             arraylist.addAll(list);
 
@@ -180,6 +181,7 @@ public class Fragment1 extends Fragment {
                         listview.setAdapter(expandableListAdapter);
                     }
                 }
+
             });
 
             } catch (IOException | JSONException e) {
@@ -218,5 +220,4 @@ class list_form {
         return num;
     }
 }
-
 
