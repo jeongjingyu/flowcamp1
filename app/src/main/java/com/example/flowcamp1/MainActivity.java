@@ -20,10 +20,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-//        replaceFragment(new Fragment1());
+        replaceFragment(new Fragment0());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
+                case R.id.home:
+                    replaceFragment(new Fragment0());
+                    break;
                 case R.id.phone_number:
                     replaceFragment(new Fragment1());
                     break;
