@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Phone number"
+        android:icon="@drawable/ic_baseline_phone_24"
+        android:id="@+id/phone_number"/>
+    <item android:title="Images"
+        android:icon="@drawable/ic_baseline_image_24"
+        android:id="@+id/images"/>
+    <item android:title="Call by Image"
+        android:icon="@drawable/ic_baseline_grade_24"
+        android:id="@+id/call_by_image"/>
+</menu>
