@@ -1,5 +1,6 @@
 package com.example.flowcamp1;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -19,6 +21,9 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
     private ArrayList<list_form> items;
     private HashMap<String, String> child;
     private ViewHolder viewHolder = null;
+    private ExpandableListView listview;
+    private int lastExpandedGroupPosition = -1;
+    View childView;
 
     public ListViewAdapter(Context context, ArrayList<list_form> items, HashMap<String, String> child) {
         this.context = context;
@@ -135,8 +140,12 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.childlistview, viewGroup, false);
 
-
         }
+        /* listview = (ExpandableListView) view.findViewById(R.id.childlistview);
+        if (i != lastExpandedGroupPosition) {
+            Log.d("lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
+            listview.collapseGroup(lastExpandedGroupPosition);
+        } */
         return view;
     }
 
@@ -144,6 +153,24 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int i, int i1) {
         return true;
     }
+
+    /*
+    @Override
+    public void onGroupExpanded(int groupPosition){
+
+        Log.d("start", "start");
+        if(groupPosition != lastExpandedGroupPosition && lastExpandedGroupPosition != -1){
+            Log.d("lastExpandedGroupPosition in if", Integer.toString(lastExpandedGroupPosition));
+        }
+        Log.d("lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
+
+        super.onGroupExpanded(groupPosition);
+        lastExpandedGroupPosition = groupPosition;
+        Log.d("changed", "changed");
+        Log.d("changed lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
+    } */
+
+
 
     class ViewHolder {
         public androidx.appcompat.widget.AppCompatButton image;
