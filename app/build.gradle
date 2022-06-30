@@ -49,4 +49,7 @@ dependencies {
 
     //LottieAnimation
     implementation 'com.airbnb.android:lottie:5.2.0'
+
+    //NaverMap
+    implementation 'com.naver.maps:map-sdk:3.15.0'
 }

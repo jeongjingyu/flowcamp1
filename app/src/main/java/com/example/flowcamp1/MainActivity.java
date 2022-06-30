@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.images:
                     replaceFragment(new Fragment2());
                     break;
-                case R.id.call_by_image:
+                case R.id.map:
                     replaceFragment(new Fragment3());
                     break;
             }
