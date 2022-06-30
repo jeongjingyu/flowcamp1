@@ -12,7 +12,7 @@ import com.airbnb.lottie.LottieAnimationView;
 
 public class StartScreen extends AppCompatActivity {
 
-    TextView app_name;
+    TextView app_name, app_explanation;
     LottieAnimationView lottie;
 
     @Override
@@ -21,6 +21,7 @@ public class StartScreen extends AppCompatActivity {
         setContentView(R.layout.activity_start_screen);
 
         app_name = findViewById(R.id.app_name);
+        app_explanation = findViewById(R.id.app_explanation);
         lottie = findViewById(R.id.lottie);
 
         new Handler().postDelayed(new Runnable() {
