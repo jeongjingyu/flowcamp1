@@ -6,10 +6,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,19 +22,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Fragment1 extends Fragment {
-    ListView listview;
-    ListViewAdapter listViewAdapter;
+    ExpandableListView listview;
+    ExpandableListAdapter expandableListAdapter;
     ArrayList<list_form> items = new ArrayList<list_form>();
-
-    /*
-    ArrayList<String> names = new ArrayList<String>();
-    ArrayList<String> nums = new ArrayList<String>();
-    String[] names_list;
-    String[] nums_list; */
+    HashMap<String, String> child = new HashMap<String, String>();
 
     public Fragment1() {
 
@@ -48,11 +42,6 @@ public class Fragment1 extends Fragment {
         /* asset에서 json 파일 불러오기 */
         AssetManager assetManager = getActivity().getAssets();
         View tabOneView = inflater.inflate(R.layout.fragment1, container, false);
-
-        /*
-        listview = (ListView) tabOneView.findViewById(R.id.listView);
-        ListViewAdapter listViewAdapter = new ListViewAdapter(getActivity().getApplicationContext(), items);
-        listview.setAdapter(listViewAdapter); */
 
         try {
             InputStream is = assetManager.open("phone_num.json");
@@ -83,25 +72,21 @@ public class Fragment1 extends Fragment {
                 String phone = jo.getString("phone");
 
                 items.add(new list_form(name, phone));
-
-                /*names.add(name);
-                nums.add(phone);*/
             }
 
+            ArrayList<String> name_list = new ArrayList<String>();
+            ArrayList<String> num_list = new ArrayList<String>();
+
+            for (int i = 0; i < items.size(); i ++) {
+                child.put(items.get(i).name, items.get(i).num);
+            }
+
+            listview = (ExpandableListView) tabOneView.findViewById(R.id.expandablelistView);
+            expandableListAdapter = new ListViewAdapter(getContext(), items, child);
+            //expandableListAdapter.setInflater((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE), this);
+            listview.setAdapter(expandableListAdapter);
+
             /*
-            names_list = new String[names.size()];
-            nums_list = new String[names.size()];
-
-            for (int i=0; i < names.size(); i++) {
-                names_list[i] = names.get(i);
-                nums_list[i] = nums.get(i);
-            } */
-
-            //ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), names_list);
-
-            listview = (ListView) tabOneView.findViewById(R.id.listView);
-            listViewAdapter = new ListViewAdapter(getContext(), items);
-            listview.setAdapter(listViewAdapter);
             listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                 @Override
@@ -109,7 +94,7 @@ public class Fragment1 extends Fragment {
                     String selectedItem = (String) view.findViewById(R.id.nameTextView).getTag().toString();
                     Log.d("selectedItem", selectedItem);
                 }
-            });
+            }); */
 
 
         } catch (IOException | JSONException e) {
