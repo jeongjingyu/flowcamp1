@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:layout_margin="10dp"
+    android:layout_marginStart="10dp"
     android:layout_gravity="center"
     android:gravity="center">
 
@@ -13,9 +13,14 @@
         android:layout_height="50dp"
         android:background="@drawable/circlebutton"
         android:drawableTop="@drawable/call"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="Call"
         android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/messageButton"
@@ -23,9 +28,14 @@
         android:layout_height="50dp"
         android:background="@drawable/circlebutton"
         android:drawableTop="@drawable/message"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="MESSAGE"
         android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/editButton"
@@ -33,9 +43,14 @@
         android:layout_height="50dp"
         android:background="@drawable/circlebutton"
         android:drawableTop="@drawable/edit"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="EDIT"
         android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/deleteButton"
@@ -43,8 +58,13 @@
         android:layout_height="50dp"
         android:background="@drawable/circlebutton"
         android:drawableTop="@drawable/delete"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="DELETE"
         android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>
