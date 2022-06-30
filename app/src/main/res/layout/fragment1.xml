@@ -9,9 +9,12 @@
         android:orientation="vertical">
 
     <ExpandableListView
-        android:id="@+id/listView"
+        android:id="@+id/expandablelistView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
+        android:groupIndicator="@null"/>
 
     </LinearLayout>
 

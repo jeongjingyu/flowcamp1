@@ -3,30 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:layout_gravity="center"
+    android:gravity="center">
 
-    <ImageView
-        android:id="@+id/call"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/call"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/callButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circlebutton"
+        android:drawableTop="@drawable/call"
+        android:text="Call"
+        android:textAlignment="center"
+        android:textSize="10sp" />
 
-    <ImageView
-        android:id="@+id/message"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/message"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/messageButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circlebutton"
+        android:drawableTop="@drawable/message"
+        android:text="MESSAGE"
+        android:textAlignment="center"
+        android:textSize="10sp" />
 
-    <ImageView
-        android:id="@+id/edit"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/edit"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circlebutton"
+        android:drawableTop="@drawable/edit"
+        android:text="EDIT"
+        android:textAlignment="center"
+        android:textSize="10sp" />
 
-    <ImageView
-        android:id="@+id/delete"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/delete"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/deleteButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circlebutton"
+        android:drawableTop="@drawable/delete"
+        android:text="DELETE"
+        android:textAlignment="center"
+        android:textSize="10sp" />
 
 </LinearLayout>
