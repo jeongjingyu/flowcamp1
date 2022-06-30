@@ -18,6 +18,17 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/app_explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_centerHorizontal="true"
+        android:text="You know nothing but the profile image"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie"
         android:layout_width="400dp"
