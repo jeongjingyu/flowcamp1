@@ -6,11 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,56 +18,15 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
     private ArrayList<list_form> items;
     private HashMap<String, String> child;
     private ViewHolder viewHolder = null;
-    private ExpandableListView listview;
+    private ExpandableListView listview = null;
     private int lastExpandedGroupPosition = -1;
-    View childView;
+    private int flag = -2;
 
     public ListViewAdapter(Context context, ArrayList<list_form> items, HashMap<String, String> child) {
         this.context = context;
         this.items = items;
         this.child = child;
     }
-
-    /*
-    public ListViewAdapter(Context context, ArrayList<list_form> items) {
-        this.context = context;
-        this.items = items;
-    }
-
-
-    @Override
-    public int getCount() {
-        return items.size();
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return items.get(i);
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-
-        if (view == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.listview, viewGroup, false);
-        }
-
-        TextView name = (TextView) view.findViewById(R.id.nameTextView);
-        TextView num = (TextView) view.findViewById(R.id.numTextView);
-
-        Log.d("items.get(i).name", items.get(i).name);
-        name.setText(items.get(i).name);
-        num.setText(items.get(i).num);
-
-        return view;
-    } */
-
 
     @Override
     public int getGroupCount() {
@@ -122,16 +78,6 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
         num.setText(items.get(i).num);
 
         return view;
-
-        /*
-        viewHolder = new ViewHolder();
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater.inflate(R.layout.listview, viewGroup, false);
-        viewHolder.childNameText = (TextView) view.findViewById(R.id.nameTextView);
-        viewHolder.childnumText = (TextView) view.findViewById(R.id.numTextView);
-        viewHolder = (ViewHolder) view.getTag();
-
-        return view; */
     }
 
     @Override
@@ -141,26 +87,36 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
             view = inflater.inflate(R.layout.childlistview, viewGroup, false);
 
         }
-        /* listview = (ExpandableListView) view.findViewById(R.id.childlistview);
+        /*
+        listview = (ExpandableListView) view.findViewById(R.id.expandablelistView);
+        Log.d("listview", listview.toString());
         if (i != lastExpandedGroupPosition) {
             Log.d("lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
-            listview.collapseGroup(lastExpandedGroupPosition);
+            //listview.collapseGroup(lastExpandedGroupPosition);
         } */
         return view;
     }
 
     @Override
     public boolean isChildSelectable(int i, int i1) {
+        /*
+        if(i != lastExpandedGroupPosition && lastExpandedGroupPosition != -1){
+            Log.d("dd", "dd");
+            return true;
+        } */
         return true;
     }
 
-    /*
     @Override
     public void onGroupExpanded(int groupPosition){
 
         Log.d("start", "start");
         if(groupPosition != lastExpandedGroupPosition && lastExpandedGroupPosition != -1){
-            Log.d("lastExpandedGroupPosition in if", Integer.toString(lastExpandedGroupPosition));
+            //isChildSelectable(groupPosition, 0);
+            //Log.d("listview in ex", listview.toString());
+            //Log.d("lastExpandedGroupPosition in if", Integer.toString(lastExpandedGroupPosition));
+            //Log.d("positionnn", String.valueOf(listview.getSelectedPosition()));
+            //listview.setItemChecked(lastExpandedGroupPosition, false);
         }
         Log.d("lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
 
@@ -168,8 +124,7 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
         lastExpandedGroupPosition = groupPosition;
         Log.d("changed", "changed");
         Log.d("changed lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
-    } */
-
+    }
 
 
     class ViewHolder {
