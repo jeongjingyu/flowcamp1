@@ -11,7 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraAnimation;
+import com.naver.maps.map.CameraUpdate;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapView;
 import com.naver.maps.map.NaverMap;
@@ -27,6 +30,7 @@ public class Fragment3 extends Fragment implements Overlay.OnClickListener, Nave
 
     private MapView mapView;
     private InfoWindow infoWindow;
+    NaverMap naverMap;
 
     public Fragment3() {
 
@@ -49,11 +53,11 @@ public class Fragment3 extends Fragment implements Overlay.OnClickListener, Nave
         naverMap.setOnMapClickListener(this);
 
         infoWindow = new InfoWindow();
-        infoWindow.setAdapter(new InfoWindow.Adapter() {
+        infoWindow.setAdapter(new InfoWindow.ViewAdapter() {
             @NonNull
             @Override
-            public OverlayImage getImage(@NonNull InfoWindow infoWindow) {
-                return OverlayImage.fromResource(R.drawable.img1);
+            public View getView(@NonNull InfoWindow infoWindow) {
+                return View.inflate(getContext(), R.layout.fragment1, null);
             }
         });
 
@@ -120,6 +124,8 @@ public class Fragment3 extends Fragment implements Overlay.OnClickListener, Nave
         Marker marker = (Marker)overlay;
         if (marker.getInfoWindow() == null) {
             infoWindow.open(marker);
+            CameraUpdate cameraUpdate = CameraUpdate.scrollTo(infoWindow.getPosition()).animate(CameraAnimation.Easing);
+            naverMap.moveCamera(cameraUpdate);
         } else {
             infoWindow.close();
         }
