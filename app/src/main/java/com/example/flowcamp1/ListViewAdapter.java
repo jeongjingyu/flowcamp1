@@ -10,8 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
+import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,14 +23,16 @@ import java.util.HashMap;
 public class ListViewAdapter extends BaseExpandableListAdapter implements View.OnClickListener {
     private Context context;
     private ArrayList<list_form> items;
-    private HashMap<String, String> child;
+    private HashMap<String, ArrayList<String>> child;
     private ViewHolder viewHolder = null;
     private ExpandableListView listview = null;
     androidx.appcompat.widget.AppCompatButton callButton;
+    ArrayList<String> child_text;
     String tel = null;
+    int position = -1;
 
 
-    public ListViewAdapter(Context context, ArrayList<list_form> items, HashMap<String, String> child) {
+    public ListViewAdapter(Context context, ArrayList<list_form> items, HashMap<String, ArrayList<String>> child) {
         this.context = context;
         this.items = items;
         this.child = child;
@@ -93,6 +99,26 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
         callButton = view.findViewById(R.id.callButton);
         callButton.setOnClickListener(this);
         tel = "tel:" + items.get(i).num;
+        position = i;
+
+        child_text = child.get(items.get(i).name);
+        Log.d("items.get(i).name", items.get(i).name);
+        Log.d("child_text", String.valueOf(child_text));
+
+        TextView time = (TextView) view.findViewById(R.id.timeTextView);
+        TextView food = (TextView) view.findViewById(R.id.foodTextView);
+        TextView rate = (TextView) view.findViewById(R.id.rateTextView);
+        TextView price = (TextView) view.findViewById(R.id.priceTextView);
+
+        food.setText(items.get(i).food);
+        time.setText("운영시간 : " + items.get(i).start + " ~ " + items.get(i).end);
+        rate.setText("평점 : " + items.get(i).rate);
+        price.setText("평균 : " + items.get(i).price);
+
+        /*
+        if (food.getText().toString() == "한식") {
+            food.setTextColor(Integer.parseInt(352));
+        } */
 
         return view;
     }
@@ -105,10 +131,9 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.callButton: {
+            case R.id.callButton:
                 view.getContext().startActivity(new Intent("android.intent.action.DIAL", Uri.parse(tel)));
                 break;
-            }
         }
     }
 
