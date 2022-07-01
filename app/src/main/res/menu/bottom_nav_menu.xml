@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:id="@+id/home"/>
-    <item android:title="Map"
-        android:icon="@drawable/ic_baseline_map_24"
-        android:id="@+id/map"/>
-    <item android:title="Phone number"
+    <item
         android:icon="@drawable/ic_baseline_phone_24"
-        android:id="@+id/phone_number"/>
+        android:id="@+id/phone_number"
+        android:title="예약"/>
+    <item
+        android:icon="@drawable/ic_baseline_image_24"
+        android:id="@+id/image"
+        android:title="갤러리"/>
+    <item
+        android:icon="@drawable/ic_baseline_map_24"
+        android:id="@+id/map"
+        android:title="지도"/>
 
 </menu>
