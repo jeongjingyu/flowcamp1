@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,12 +42,11 @@ public class Fragment1 extends Fragment {
     ExpandableListAdapter expandableListAdapter3;
     ArrayList<list_form> items = new ArrayList<list_form>();
     ArrayList<list_form> items2;
-    HashMap<String, String> child = new HashMap<String, String>();
-    HashMap<String, String> child2;
+    HashMap<String, ArrayList<String>> child = new HashMap<String, ArrayList<String>>();
+    HashMap<String, ArrayList<String>> child2;
     EditText editSearch;
     private ArrayList<String> list;
     private List<String> arraylist;
-    androidx.appcompat.widget.AppCompatButton callButton;
 
     public Fragment1() {
 
@@ -59,9 +59,8 @@ public class Fragment1 extends Fragment {
         /* asset에서 json 파일 불러오기 */
         AssetManager assetManager = getActivity().getAssets();
         View tabOneView = inflater.inflate(R.layout.fragment1, container, false);
-        View expandableListview = inflater.inflate(R.layout.fragment1, container, false);
+        View expandableListview = inflater.inflate(R.layout.listview, container, false);
         list = new ArrayList<String>();
-
 
         try {
             InputStream is = assetManager.open("phone_num.json");
@@ -90,41 +89,37 @@ public class Fragment1 extends Fragment {
                 String id = jo.getString("id");
                 String name = jo.getString("name");
                 String phone = jo.getString("phone");
+                String food = jo.getString("food");
+                String start = jo.getString("start");
+                String end = jo.getString("end");
+                String rate = jo.getString("rate");
+                String price = jo.getString("price");
 
-                items.add(new list_form(name, phone));
+                items.add(new list_form(name, phone, food, start, end, rate, price));
                 list.add(name);
             }
 
-            ArrayList<String> name_list = new ArrayList<String>();
-            ArrayList<String> num_list = new ArrayList<String>();
-
             for (int i = 0; i < items.size(); i ++) {
-                child.put(items.get(i).name, items.get(i).num);
+                ArrayList<String> child_list = new ArrayList<String>();
+                child_list.add(items.get(i).num);
+                child_list.add(items.get(i).food);
+                child_list.add(items.get(i).start);
+                child_list.add(items.get(i).end);
+                child_list.add(items.get(i).rate);
+                child_list.add(items.get(i).price);
+                child.put(items.get(i).name, child_list);
             }
-
 
             arraylist = new ArrayList<String>();
             arraylist.addAll(list);
 
             listview = (ExpandableListView) tabOneView.findViewById(R.id.expandablelistView);
             expandableListAdapter = new ListViewAdapter(getContext(), items, child);
-            //expandableListAdapter.setInflater((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE), this);
             listview.setAdapter(expandableListAdapter);
-
-            /*
-            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    String selectedItem = (String) view.findViewById(R.id.nameTextView).getTag().toString();
-                    Log.d("selectedItem", selectedItem);
-                }
-            }); */
 
             editSearch = tabOneView.findViewById(R.id.searchEditText);
 
             if (editSearch.getText().toString().equals("") || editSearch.getText().toString() == null) {
-                Log.d("mm", "mm");
                 expandableListAdapter3 = new ListViewAdapter(getContext(), items, child);
                 listview.invalidate();
                 listview.setAdapter(expandableListAdapter3);
@@ -141,9 +136,9 @@ public class Fragment1 extends Fragment {
 
                 @Override
                 public void afterTextChanged(Editable editable) {
-                    checkEmpty();
                     String text = editSearch.getText().toString();
                     search(text);
+                    checkEmpty();
                 }
 
                 public void search(String charText) {
@@ -155,16 +150,25 @@ public class Fragment1 extends Fragment {
 
                     else{
                         items2 = new ArrayList<list_form>();
-                        child2 = new HashMap<String, String>();
+                        child2 = new HashMap<String, ArrayList<String>>();
                         for (int i=0; i < arraylist.size(); i++) {
                             if (arraylist.get(i).toLowerCase().contains(charText)) {
                                 list.add(arraylist.get(i));
-                                items2.add(new list_form(items.get(i).name, items.get(i).num));
+                                items2.add(new list_form(items.get(i).name, items.get(i).num,
+                                        items.get(i).food, items.get(i).start, items.get(i).end,
+                                        items.get(i).rate, items.get(i).price));
                             }
                         }
 
                         for (int i = 0; i < items2.size(); i ++) {
-                            child2.put(items2.get(i).name, items2.get(i).num);
+                            ArrayList<String> child_list = new ArrayList<String>();
+                            child_list.add(items.get(i).num);
+                            child_list.add(items.get(i).food);
+                            child_list.add(items.get(i).start);
+                            child_list.add(items.get(i).end);
+                            child_list.add(items.get(i).rate);
+                            child_list.add(items.get(i).price);
+                            child2.put(items2.get(i).name, child_list);
                         }
                     }
                     expandableListAdapter2 = new ListViewAdapter(getContext(), items2, child2);
@@ -174,17 +178,12 @@ public class Fragment1 extends Fragment {
 
                 public void checkEmpty() {
                     if (editSearch.getText().toString().equals("") || editSearch.getText().toString() == null) {
-                        Log.d("text", editSearch.getText().toString());
-                        Log.d("text length", String.valueOf(editSearch.getText().length()));
-                        Log.d("i", listview.getAdapter().toString());
 
                         expandableListAdapter = new ListViewAdapter(getContext(), items, child);
                         listview.setAdapter(expandableListAdapter);
                     }
                 }
-
             });
-
             } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
@@ -200,27 +199,27 @@ public class Fragment1 extends Fragment {
                 }
             }
         });
-
         return tabOneView; // frame view return
-
     }
 }
 
 class list_form {
     public String name;
     public String num;
+    public String food;
+    public String start;
+    public String end;
+    public String rate;
+    public String price;
 
-    public list_form(String name, String num) {
+    public list_form(String name, String num, String food, String start, String end, String rate, String price) {
         this.name = name;
         this.num = num;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getNum() {
-        return num;
+        this.food = food;
+        this.start = start;
+        this.end = end;
+        this.rate = rate;
+        this.price = price;
     }
 }
 

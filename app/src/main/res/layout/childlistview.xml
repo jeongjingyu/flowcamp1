@@ -2,19 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_marginStart="10dp"
     android:layout_gravity="center"
     android:gravity="center">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/callButton"
-        android:layout_width="62dp"
-        android:layout_height="62dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/circlebutton"
         android:backgroundTint="#D2F1D3"
         android:drawableTop="@drawable/call"
@@ -22,61 +22,51 @@
         android:drawablePadding="-10dp"
         android:text="Call"
         android:textAlignment="center"
-        android:textSize="11sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/messageButton"
-        android:layout_width="62dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/circlebutton"
-        android:backgroundTint="#C5E9FA"
-        android:drawableTop="@drawable/message"
-        android:paddingTop="10dp"
-        android:drawablePadding="-10dp"
-        android:text="MESSAGE"
-        android:textAlignment="center"
-        android:textSize="11sp"
-        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/foodTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="한식"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:layout_marginBottom="5dp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/editButton"
-        android:layout_width="62dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/circlebutton"
-        android:backgroundTint="#F6F0BD"
-        android:drawableTop="@drawable/edit"
-        android:paddingTop="10dp"
-        android:drawablePadding="-10dp"
-        android:text="EDIT"
-        android:textAlignment="center"
-        android:textSize="11sp"
-        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="운영시간 : 10:00 ~ 21:00"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/black"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/deleteButton"
-        android:layout_width="62dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/circlebutton"
-        android:backgroundTint="#FDCFC0"
-        android:drawableTop="@drawable/delete"
-        android:paddingTop="10dp"
-        android:drawablePadding="-10dp"
-        android:text="DELETE"
-        android:textAlignment="center"
-        android:textSize="10sp"
-        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/rateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="평점: 4.4"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="평균 5,000원"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:layout_marginBottom="20dp"/>
+
 
 </LinearLayout>
