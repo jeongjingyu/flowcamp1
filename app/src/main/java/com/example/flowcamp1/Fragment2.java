@@ -1,34 +1,27 @@
 package com.example.flowcamp1;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
-import com.bumptech.glide.request.transition.Transition;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment2 extends Fragment {
-    /*
+
     Bitmap bitmap;
     View viewLightVibrant;
     TextView tvLightVibrantTitle;
@@ -41,7 +34,7 @@ public class Fragment2 extends Fragment {
     String hexr;
     String hexg;
     String hexb;
-    String hexa; */
+    String hexa;
 
     private ViewPager2 viewPager2;
     private Handler sliderHandler = new Handler();
@@ -56,6 +49,8 @@ public class Fragment2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment2, container, false);
         viewPager2 = view.findViewById(R.id.viewPagerImageSlider);
         List<SliderItem> sliderItems = new ArrayList<>();
+        List<Drawable> imageItems = new ArrayList<Drawable>();
+
         sliderItems.add(new SliderItem(R.drawable.img1));
         sliderItems.add(new SliderItem(R.drawable.img2));
         sliderItems.add(new SliderItem(R.drawable.img3));
@@ -86,6 +81,12 @@ public class Fragment2 extends Fragment {
                 sliderHandler.removeCallbacks(sliderRunnable);
                 sliderHandler.postDelayed(sliderRunnable, 3000);
 
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Drawable d = imageItems.get(position);
+                    }
+                });
                 /*bitmap = Bitmap.createScaledBitmap(bitmap, 1, 1, true);
                 Palette palette=Palette.from(bitmap).generate();
                 setPalette(palette);*/
