@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Phone number"
-        android:icon="@drawable/ic_baseline_phone_24"
-        android:id="@+id/phone_number"/>
-    <item android:title="Images"
-        android:icon="@drawable/ic_baseline_image_24"
-        android:id="@+id/images"/>
+    <item android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/home"/>
     <item android:title="Map"
         android:icon="@drawable/ic_baseline_map_24"
         android:id="@+id/map"/>
+    <item android:title="Phone number"
+        android:icon="@drawable/ic_baseline_phone_24"
+        android:id="@+id/phone_number"/>
 
 </menu>
