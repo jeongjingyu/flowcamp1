@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -29,6 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -57,7 +59,7 @@ public class Fragment1 extends Fragment {
         /* asset에서 json 파일 불러오기 */
         AssetManager assetManager = getActivity().getAssets();
         View tabOneView = inflater.inflate(R.layout.fragment1, container, false);
-        View expandableListview = inflater.inflate(R.layout.childlistview, container, false);
+        View expandableListview = inflater.inflate(R.layout.fragment1, container, false);
         list = new ArrayList<String>();
 
 
@@ -187,26 +189,6 @@ public class Fragment1 extends Fragment {
             e.printStackTrace();
         }
 
-        listview.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-                Log.d("Clicked","Clicked");
-                /*
-                callButton = expandableListview.findViewById(R.id.callButton);
-                callButton.setEnabled(true);
-                callButton.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        long[] id = listview.getCheckedItemIds();
-                        Log.d("id", id.toString());
-                        //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse()
-                    }
-                }); */
-                return false;
-            }
-        });
-
         listview.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             // 한 그룹이 열릴 때 다른 그룹들은 모두 닫아줌
             @Override
@@ -216,18 +198,6 @@ public class Fragment1 extends Fragment {
                     if (!(i == groupPosition))
                         listview.collapseGroup(i);
                 }
-
-                callButton = expandableListview.findViewById(R.id.callButton);
-                callButton.setEnabled(true);
-                callButton.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        long[] id = listview.getCheckedItemIds();
-                        Log.d("id", id.toString());
-                        //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse()
-                    }
-                });
             }
         });
 
