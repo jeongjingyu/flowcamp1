@@ -7,11 +7,11 @@
     android:layout_gravity="center"
     android:gravity="center">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <!--
+    <Button
         android:id="@+id/callButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/circlebutton"
         android:drawableTop="@drawable/call"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
@@ -20,51 +20,79 @@
         android:text="Call"
         android:textAlignment="center"
         android:textSize="10sp"
+        android:textStyle="bold" -->
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/callButton"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/circlebutton"
+        android:backgroundTint="#D2F1D3"
+        android:drawableTop="@drawable/call"
+        android:paddingTop="10dp"
+        android:drawablePadding="-10dp"
+        android:text="Call"
+        android:textAlignment="center"
+        android:textSize="11sp"
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/messageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/circlebutton"
-        android:drawableTop="@drawable/message"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/circlebutton"
+        android:backgroundTint="#C5E9FA"
+        android:drawableTop="@drawable/message"
+        android:paddingTop="10dp"
+        android:drawablePadding="-10dp"
         android:text="MESSAGE"
         android:textAlignment="center"
-        android:textSize="10sp"
+        android:textSize="11sp"
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/editButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/circlebutton"
-        android:drawableTop="@drawable/edit"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/circlebutton"
+        android:backgroundTint="#F6F0BD"
+        android:drawableTop="@drawable/edit"
+        android:paddingTop="10dp"
+        android:drawablePadding="-10dp"
         android:text="EDIT"
         android:textAlignment="center"
-        android:textSize="10sp"
+        android:textSize="11sp"
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/deleteButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/circlebutton"
-        android:drawableTop="@drawable/delete"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/circlebutton"
+        android:backgroundTint="#FDCFC0"
+        android:drawableTop="@drawable/delete"
+        android:paddingTop="10dp"
+        android:drawablePadding="-10dp"
         android:text="DELETE"
         android:textAlignment="center"
         android:textSize="10sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
 </LinearLayout>
