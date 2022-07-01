@@ -5,25 +5,22 @@
       <map>
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.154" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/activity_start_screen.xml" value="0.1" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/fragment1.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/fragment2.xml" value="0.2047008547008547" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/fragment3.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/fragment_0.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/item_slider.xml" value="0.2047008547008547" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/slide_item_container.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/circlebutton.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/person.xml" value="0.113" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11041666666666666" />
         <entry key="app/src/main/res/layout/childlistview.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment1.xml" value="0.30398406982421877" />
         <entry key="app/src/main/res/layout/circlebutton.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/fragment1.xml" value="0.30398406982421877" />
         <entry key="app/src/main/res/layout/fragment2.xml" value="0.11041666666666666" />
         <entry key="app/src/main/res/layout/listview.xml" value="0.2033514492753623" />
-        <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/item_slider.xml" value="0.2047008547008547" />
-        <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/slide_item_container.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

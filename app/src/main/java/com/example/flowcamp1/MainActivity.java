@@ -20,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new Fragment1());
+        replaceFragment(new Fragment2());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.phone_number:
                     replaceFragment(new Fragment1());
                     break;
-                case R.id.images:
+                case R.id.home:
                     replaceFragment(new Fragment2());
                     break;
                 case R.id.map:
