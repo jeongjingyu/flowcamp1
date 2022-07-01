@@ -8,7 +8,8 @@
         android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:navermap_latitude="36.3624677"
-        app:navermap_longitude="127.358096"/>
+        app:navermap_latitude="36.3576768"
+        app:navermap_longitude="127.362976"
+        app:navermap_zoom="13"/>
 
 </FrameLayout>
