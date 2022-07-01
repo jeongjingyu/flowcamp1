@@ -22,7 +22,6 @@
         android:textSize="10sp"
         android:textStyle="bold" -->
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/callButton"
         android:layout_width="62dp"
