@@ -1,27 +1,29 @@
 package com.example.flowcamp1;
 
-import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ListViewAdapter extends BaseExpandableListAdapter {
+public class ListViewAdapter extends BaseExpandableListAdapter implements View.OnClickListener {
     private Context context;
     private ArrayList<list_form> items;
     private HashMap<String, String> child;
     private ViewHolder viewHolder = null;
     private ExpandableListView listview = null;
-    private int lastExpandedGroupPosition = -1;
-    private int flag = -2;
     androidx.appcompat.widget.AppCompatButton callButton;
+    String tel = null;
 
 
     public ListViewAdapter(Context context, ArrayList<list_form> items, HashMap<String, String> child) {
@@ -88,57 +90,27 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.childlistview, viewGroup, false);
         }
-        /*
-        listview = (ExpandableListView) view.findViewById(R.id.expandablelistView);
-        Log.d("listview", listview.toString());
-        if (i != lastExpandedGroupPosition) {
-            Log.d("lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
-            //listview.collapseGroup(lastExpandedGroupPosition);
-        }
+        callButton = view.findViewById(R.id.callButton);
+        callButton.setOnClickListener(this);
+        tel = "tel:" + items.get(i).num;
 
-        callButton = tabOneView.findViewById(R.id.callButton);
-        callButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                long[] id = listview.getCheckedItemIds();
-                Log.d("id", id.toString());
-                //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse()
-            }
-
-        });*/
         return view;
     }
 
     @Override
     public boolean isChildSelectable(int i, int i1) {
-        /*
-        if(i != lastExpandedGroupPosition && lastExpandedGroupPosition != -1){
-            Log.d("dd", "dd");
-            return true;
-        } */
         return true;
     }
 
     @Override
-    public void onGroupExpanded(int groupPosition){
-
-        Log.d("start", "start");
-        if(groupPosition != lastExpandedGroupPosition && lastExpandedGroupPosition != -1){
-            //isChildSelectable(groupPosition, 0);
-            //Log.d("listview in ex", listview.toString());
-            //Log.d("lastExpandedGroupPosition in if", Integer.toString(lastExpandedGroupPosition));
-            //Log.d("positionnn", String.valueOf(listview.getSelectedPosition()));
-            //listview.setItemChecked(lastExpandedGroupPosition, false);
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.callButton: {
+                view.getContext().startActivity(new Intent("android.intent.action.DIAL", Uri.parse(tel)));
+                break;
+            }
         }
-        Log.d("lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
-
-        super.onGroupExpanded(groupPosition);
-        lastExpandedGroupPosition = groupPosition;
-        Log.d("changed", "changed");
-        Log.d("changed lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
     }
-
 
     class ViewHolder {
         public androidx.appcompat.widget.AppCompatButton image;
