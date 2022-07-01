@@ -1,8 +1,6 @@
 package com.example.flowcamp1;
 
-import android.content.Intent;
 import android.content.res.AssetManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,11 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,7 +29,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 
 public class Fragment1 extends Fragment {
     ExpandableListView listview;
@@ -60,7 +56,7 @@ public class Fragment1 extends Fragment {
         AssetManager assetManager = getActivity().getAssets();
         View tabOneView = inflater.inflate(R.layout.fragment1, container, false);
         list = new ArrayList<String>();
-        callButton = (AppCompatButton) tabOneView.findViewById(R.id.callButton);
+
 
         try {
             InputStream is = assetManager.open("phone_num.json");
@@ -188,15 +184,38 @@ public class Fragment1 extends Fragment {
             e.printStackTrace();
         }
 
-        /*callButton.setOnClickListener(new View.OnClickListener() {
-
-
+        listview.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
-            public void onClick(View view) {
-                //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse()
-            }
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                Log.d("Clicked","Clicked");
+                /*
+                callButton = tabOneView.findViewById(R.id.callButton);
+                callButton.setEnabled(true);
+                callButton.setOnClickListener(new View.OnClickListener() {
 
-        }); */
+                    @Override
+                    public void onClick(View view) {
+                        long[] id = listview.getCheckedItemIds();
+                        Log.d("id", id.toString());
+                        //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse()
+                    }
+                }); */
+                return false;
+            }
+        });
+
+        listview.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            // 한 그룹이 열릴 때 다른 그룹들은 모두 닫아줌
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                // 범위 지정 잘 해 주어야 함
+                for (int i = 0; i < 13; i++) {
+                    if (!(i == groupPosition))
+                        listview.collapseGroup(i);
+                }
+            }
+        });
 
         return tabOneView; // frame view return
 
