@@ -136,9 +136,9 @@ public class Fragment1 extends Fragment {
 
                 @Override
                 public void afterTextChanged(Editable editable) {
-                    checkEmpty();
                     String text = editSearch.getText().toString();
                     search(text);
+                    checkEmpty();
                 }
 
                 public void search(String charText) {
@@ -178,9 +178,6 @@ public class Fragment1 extends Fragment {
 
                 public void checkEmpty() {
                     if (editSearch.getText().toString().equals("") || editSearch.getText().toString() == null) {
-                        Log.d("text", editSearch.getText().toString());
-                        Log.d("text length", String.valueOf(editSearch.getText().length()));
-                        Log.d("i", listview.getAdapter().toString());
 
                         expandableListAdapter = new ListViewAdapter(getContext(), items, child);
                         listview.setAdapter(expandableListAdapter);
@@ -203,7 +200,6 @@ public class Fragment1 extends Fragment {
             }
         });
         return tabOneView; // frame view return
-
     }
 }
 
