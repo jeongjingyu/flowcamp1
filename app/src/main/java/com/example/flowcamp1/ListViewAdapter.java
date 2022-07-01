@@ -21,6 +21,8 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
     private ExpandableListView listview = null;
     private int lastExpandedGroupPosition = -1;
     private int flag = -2;
+    androidx.appcompat.widget.AppCompatButton callButton;
+
 
     public ListViewAdapter(Context context, ArrayList<list_form> items, HashMap<String, String> child) {
         this.context = context;
@@ -85,7 +87,6 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.childlistview, viewGroup, false);
-
         }
         /*
         listview = (ExpandableListView) view.findViewById(R.id.expandablelistView);
@@ -93,7 +94,19 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
         if (i != lastExpandedGroupPosition) {
             Log.d("lastExpandedGroupPosition", Integer.toString(lastExpandedGroupPosition));
             //listview.collapseGroup(lastExpandedGroupPosition);
-        } */
+        }
+
+        callButton = tabOneView.findViewById(R.id.callButton);
+        callButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                long[] id = listview.getCheckedItemIds();
+                Log.d("id", id.toString());
+                //Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse()
+            }
+
+        });*/
         return view;
     }
 
@@ -132,5 +145,4 @@ public class ListViewAdapter extends BaseExpandableListAdapter {
         public TextView childNameText;
         public TextView childnumText;
     }
-
 }
