@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
@@ -22,23 +23,6 @@ import java.util.List;
 
 public class Fragment2 extends Fragment {
 
-    Bitmap bitmap;
-    View viewLightVibrant;
-    TextView tvLightVibrantTitle;
-    TextView tvLightVibrantBody;
-
-    int r;
-    int g;
-    int b;
-    int a;
-    String hexr;
-    String hexg;
-    String hexb;
-    String hexa;
-
-    private ViewPager2 viewPager2;
-    private Handler sliderHandler = new Handler();
-
     public Fragment2() {
 
     }
@@ -46,123 +30,30 @@ public class Fragment2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment2, container, false);
-        viewPager2 = view.findViewById(R.id.viewPagerImageSlider);
-        List<SliderItem> sliderItems = new ArrayList<>();
-        List<Drawable> imageItems = new ArrayList<Drawable>();
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        sliderItems.add(new SliderItem(R.drawable.img1));
-        sliderItems.add(new SliderItem(R.drawable.img2));
-        sliderItems.add(new SliderItem(R.drawable.img3));
-        sliderItems.add(new SliderItem(R.drawable.img4));
-        sliderItems.add(new SliderItem(R.drawable.img5));
+        MyRestaurantData[] myRestaurantData = new MyRestaurantData[]{
+                new MyRestaurantData("하바쿡", "텍사스 스타일 바베큐와 브리스킷, 대전의 로우앤슬로우", R.drawable.img11, R.drawable.img12, R.drawable.img13, R.drawable.img14),
+                new MyRestaurantData("와타요업", "전국구 텐동 맛집, 서울에서도 흔하지 않은 퀄리티", R.drawable.img21, R.drawable.img22, R.drawable.img23, R.drawable.img24),
+                new MyRestaurantData("토미야", "여름엔 시원한 붓카케 냉우동, 가라아게가 진짜 맛있음", R.drawable.img31, R.drawable.img32, R.drawable.img33, R.drawable.img34),
+                new MyRestaurantData("할머니딸생양곱창", "가성비 좋은 무한리필 곱창, 볶음밥은 필수", R.drawable.img41, R.drawable.img42, R.drawable.img43, R.drawable.img44),
+                new MyRestaurantData("태평소국밥", "줄서서 먹는 소국밥, 회전율이 좋아 육사시미가 신선함", R.drawable.img51, R.drawable.img52, R.drawable.img53, R.drawable.img54),
+                new MyRestaurantData("다다카츠", "어은동에 있는 돈카츠 맛집, 밥과 면은 무한리필", R.drawable.img61, R.drawable.img62, R.drawable.img63, R.drawable.img64),
+                new MyRestaurantData("달구지막창", "대구 막창보다 맛있다는 막창집, 된장찌개와의 궁합이 최고", R.drawable.img71, R.drawable.img72, R.drawable.img73, R.drawable.img74),
+                new MyRestaurantData("주전자", "궁동에서 막걸리에 전은 여기, 진짜 정통 막거리 맛집", R.drawable.img81, R.drawable.img82, R.drawable.img83, R.drawable.img84),
+                new MyRestaurantData("리코타코", "양 많고 맛있는 멕시코 음식, 소프트파코보다는 하드타코 추천", R.drawable.img91, R.drawable.img92, R.drawable.img93, R.drawable.img94),
+                new MyRestaurantData("잇마이타이", "한국 스타일 태국 음식의 정점, 고수 못 먹어도 상관없음", R.drawable.img101, R.drawable.img102, R.drawable.img103, R.drawable.img104),
+        };
 
-        viewPager2.setAdapter(new SliderAdapter(sliderItems, viewPager2));
-        viewPager2.setClipToPadding(false);
-        viewPager2.setClipChildren(false);
-        viewPager2.setOffscreenPageLimit(3);
-        viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
-
-        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
-        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
-        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                float r = 1 - Math.abs(position);
-                page.setScaleY(0.85f + r * 0.15f);
-            }
-        });
-
-        viewPager2.setPageTransformer(compositePageTransformer);
-        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                sliderHandler.removeCallbacks(sliderRunnable);
-                sliderHandler.postDelayed(sliderRunnable, 3000);
-
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Drawable d = imageItems.get(position);
-                    }
-                });
-                /*bitmap = Bitmap.createScaledBitmap(bitmap, 1, 1, true);
-                Palette palette=Palette.from(bitmap).generate();
-                setPalette(palette);*/
-
-            }
-        });
+        MyRestaurantAdapter myRestaurantAdapter = new MyRestaurantAdapter(myRestaurantData, recyclerView);
+        recyclerView.setAdapter(myRestaurantAdapter);
 
         return view;
     }
-
-    private Runnable sliderRunnable = new Runnable() {
-        @Override
-        public void run() {
-            viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
-
-        }
-    };
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        sliderHandler.removeCallbacks(sliderRunnable);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        sliderHandler.postDelayed(sliderRunnable, 3000);
-    }
-
-    /*
-    private String setPalette(Palette palette) {
-
-        if (palette == null) {
-            return null;
-        }
-
-        // 우리가 선택한 색상표: LightVibrantSwatch
-        Palette.Swatch lightVibrantSwatch = palette.getLightVibrantSwatch();
-        // return 할 hex 형태 컬러 초기화
-        String hex = null;
-
-        if (lightVibrantSwatch != null) {
-
-            // view와 두 텍스트를 이미지의 lightVibrantSwatch한 컬러로 변경
-            viewLightVibrant.setBackgroundColor(lightVibrantSwatch.getRgb());
-            tvLightVibrantTitle.setTextColor(lightVibrantSwatch.getTitleTextColor());
-            tvLightVibrantBody.setTextColor(lightVibrantSwatch.getBodyTextColor());
-            Log.d("lightVibrantSwatch", String.valueOf(lightVibrantSwatch.getRgb()));
-
-            // rgb 값 추출
-            int pixel = lightVibrantSwatch.getRgb(); // -65551 이런 형태
-            r = Color.red(pixel);
-            g = Color.green(pixel);
-            b = Color.blue(pixel);
-            a = Color.alpha(pixel); // alpha: 투명도
-
-            // 위에서 뽑은 r, g, b, a 값을 16진수 hex로 변환
-            hexr = pad(Integer.toHexString(r)); // 아래 pad 함수 정의 (16진수 패딩)
-            hexg = pad(Integer.toHexString(g));
-            hexb = pad(Integer.toHexString(b));
-            hexa = pad(Integer.toHexString(a));
-
-            // 16진수 형태의 r, g, b, a를 통합시켜 "#FF930284" 형태로 변환
-            hex = "#" + hexa + hexr + hexg + hexb;
-            hex = hex.toUpperCase();
-            Log.d("hex color", hex);
-        } // end if
-        return hex;
-    } // end setPalette
-
-    // 16진수 패딩
-    private static final String pad(String s) {
-        return (s.length() == 1) ? "0" + s : s;
-    }*/
 }
-
 
 
