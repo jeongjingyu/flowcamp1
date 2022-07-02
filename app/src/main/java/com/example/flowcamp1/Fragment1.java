@@ -1,5 +1,6 @@
 package com.example.flowcamp1;
 
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,7 +26,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,11 +39,16 @@ public class Fragment1 extends Fragment {
     HashMap<String, ArrayList<String>> child = new HashMap<String, ArrayList<String>>();
     HashMap<String, ArrayList<String>> child2;
     EditText editSearch;
+    MainActivity mainActivity;
     private ArrayList<String> list;
     private List<String> arraylist;
 
     public Fragment1() {
 
+    }
+
+    public static Fragment1 newInstance() {
+        return new Fragment1();
     }
 
     @Nullable
@@ -55,6 +60,7 @@ public class Fragment1 extends Fragment {
         View tabOneView = inflater.inflate(R.layout.fragment1, container, false);
         View expandableListview = inflater.inflate(R.layout.listview, container, false);
         list = new ArrayList<String>();
+
 
         try {
             InputStream is = assetManager.open("phone_num.json");
@@ -193,6 +199,7 @@ public class Fragment1 extends Fragment {
                 }
             }
         });
+
         return tabOneView; // frame view return
     }
 }
@@ -216,4 +223,5 @@ class list_form {
         this.price = price;
     }
 }
+
 

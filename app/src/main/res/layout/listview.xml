@@ -14,7 +14,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/person"/>
+        android:background="@drawable/restaurant"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

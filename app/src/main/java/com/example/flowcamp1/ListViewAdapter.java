@@ -1,21 +1,16 @@
 package com.example.flowcamp1;
 
-import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.Button;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,9 +19,11 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
     private Context context;
     private ArrayList<list_form> items;
     private HashMap<String, ArrayList<String>> child;
-    private ViewHolder viewHolder = null;
+    Fragment1 fragment1 = new Fragment1();
+    MainActivity mainActivity;
     private ExpandableListView listview = null;
     androidx.appcompat.widget.AppCompatButton callButton;
+    androidx.appcompat.widget.AppCompatButton mapButton;
     ArrayList<String> child_text;
     String tel = null;
     int position = -1;
@@ -102,8 +99,6 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
         position = i;
 
         child_text = child.get(items.get(i).name);
-        Log.d("items.get(i).name", items.get(i).name);
-        Log.d("child_text", String.valueOf(child_text));
 
         TextView time = (TextView) view.findViewById(R.id.timeTextView);
         TextView food = (TextView) view.findViewById(R.id.foodTextView);
@@ -114,6 +109,9 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
         time.setText("운영시간 : " + items.get(i).start + " ~ " + items.get(i).end);
         rate.setText("평점 : " + items.get(i).rate);
         price.setText("평균 : " + items.get(i).price);
+
+        mapButton = view.findViewById(R.id.mapButton);
+        mapButton.setOnClickListener(this);
 
         /*
         if (food.getText().toString() == "한식") {
@@ -134,12 +132,11 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
             case R.id.callButton:
                 view.getContext().startActivity(new Intent("android.intent.action.DIAL", Uri.parse(tel)));
                 break;
+            case R.id.mapButton:
+                // fragment 전환
+                mainActivity = (MainActivity) context;
+                mainActivity.showMapFragment(position, new Fragment3());
+                break;
         }
-    }
-
-    class ViewHolder {
-        public androidx.appcompat.widget.AppCompatButton image;
-        public TextView childNameText;
-        public TextView childnumText;
     }
 }
