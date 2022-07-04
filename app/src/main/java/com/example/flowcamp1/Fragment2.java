@@ -37,6 +37,9 @@ public class Fragment2 extends Fragment {
                 new MyRestaurantData("주전자", "궁동에서 막걸리에 전은 여기, 진짜 정통 막걸리 맛집", R.drawable.img81, R.drawable.img82, R.drawable.img83, R.drawable.img84, R.drawable.img89),
                 new MyRestaurantData("리코타코", "양 많고 맛있는 멕시코 음식, 소프트타코보다는 하드타코 추천", R.drawable.img91, R.drawable.img92, R.drawable.img93, R.drawable.img94, R.drawable.img99),
                 new MyRestaurantData("잇마이타이", "한국 스타일 태국 음식의 정점, 고수 못 먹어도 상관없음", R.drawable.img101, R.drawable.img102, R.drawable.img103, R.drawable.img104, R.drawable.img109),
+                new MyRestaurantData("서브웨이", "카이스트에서는 1등 점심, 익숙하지만 새로운 조합의 샌드위치", R.drawable.img111, R.drawable.img112, R.drawable.img113, R.drawable.img114, R.drawable.img119),
+                new MyRestaurantData("호우섬", "홍콩 느낌 제대로 나는 딤섬 맛집, 비싼 가격과 그만한 값어치", R.drawable.img121, R.drawable.img122, R.drawable.img123, R.drawable.img124, R.drawable.img129),
+                new MyRestaurantData("최진엽등촌샤브샤브", "충남대 앞 가성비 샤브샤브 성지, 소고기 샤브샤브가 6500원", R.drawable.img131, R.drawable.img132, R.drawable.img133, R.drawable.img134, R.drawable.img139),
         };
 
         MyRestaurantAdapter myRestaurantAdapter = new MyRestaurantAdapter(myRestaurantData, recyclerView);
