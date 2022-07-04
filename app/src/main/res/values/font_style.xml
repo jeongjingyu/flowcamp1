@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="GmarketSansTTFBold" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/gmarketsansttfbold</item>
+    </style>
+
+    <style name="GmarketSansTTFMedium" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/gmarketsansttfmedium</item>
+    </style>
+
+    <style name="GmarketSansTTFLight" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/gmarketsansttflght</item>
+    </style>
+</resources>

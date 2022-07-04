@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:divider="@android:color/darker_gray"
+        android:fontFamily="@font/gmarketsansttflght"
         android:dividerHeight="0.5dp"
         android:groupIndicator="@null" />
 

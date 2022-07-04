@@ -65,18 +65,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         binding.bottomNavigationView.setSelectedItemId(R.id.map);
         fragmentTransaction.show(fragment);
-        //fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
 
         missing.setText(Integer.toString(idx));
-        Log.d("missing", missing.getText().toString());
-
-        bundle = new Bundle();
-        idx_str = Integer.toString(idx);
-        bundle.putString("position", idx_str);
-        fragment3 = new Fragment3();
-        fragment3.setArguments(bundle);
-        Log.d("bundle", String.valueOf(bundle.getString("position")));
-
     }
 }
