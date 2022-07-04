@@ -25,7 +25,8 @@
         <entry key="app/src/main/res/layout/fragment1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment2.xml" value="0.11041666666666666" />
         <entry key="app/src/main/res/layout/fragment3.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/listview.xml" value="0.238909912109375" />
+        <entry key="app/src/main/res/layout/listview.xml" value="0.2568862915039063" />
+        <entry key="app/src/main/res/layout/mapcardview.xml" value="0.1" />
       </map>
     </option>
   </component>

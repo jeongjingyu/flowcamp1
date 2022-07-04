@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -52,9 +53,16 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     TextView missing;
     ArrayList<String> markerList = new ArrayList<String>();
     ArrayList<String> addressList = new ArrayList<String>();
+    ArrayList<String> textList = new ArrayList<String>();
+    ArrayList<Integer> image_list = new ArrayList<Integer>();
+    CardView cardView;
+    TextView nameCard;
+    TextView addressCard;
+    TextView explainCard;
+    com.makeramen.roundedimageview.RoundedImageView imageCard;
+    androidx.appcompat.widget.AppCompatButton closeButton;
 
     public Fragment3() {
-
     }
 
     public static Fragment3 newInstance() {
@@ -64,18 +72,17 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        Log.d("oncreateview","oncreateview");
         rootView = inflater.inflate(R.layout.fragment3, container, false);
         mapView = (com.google.android.gms.maps.MapView) rootView.findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync((com.google.android.gms.maps.OnMapReadyCallback) this);
+        cardView = rootView.findViewById(R.id.cardView);
 
         com.google.android.material.textfield.TextInputLayout searchEditText = rootView.findViewById(R.id.searchEditText);
         Button clickButton = rootView.findViewById(R.id.searchButton);
@@ -99,7 +106,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                     } else {
                         latitude = list.get(0).getLatitude();
                         longitude = list.get(0).getLongitude();
-                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new com.google.android.gms.maps.model.LatLng(list.get(0).getLatitude(), list.get(0).getLongitude()), 18);
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new com.google.android.gms.maps.model.LatLng(list.get(0).getLatitude(), list.get(0).getLongitude()), 14);
                         googleMap.animateCamera(cameraUpdate);
                         googleMap.addMarker(new MarkerOptions()
                                 .position(new com.google.android.gms.maps.model.LatLng(latitude, longitude))
@@ -133,7 +140,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         markerList.add("리코타코");
         markerList.add("잇마이타이");
 
-        addressList.add("대전 유성구 대학로 227 어은빌딩2층");
+        addressList.add("대전 유성구 대학로 227 어은빌딩 2층");
         addressList.add("대전 서구 갈마역로25번길 9-8 1층 와타요업");
         addressList.add("대전 서구 청사서로 14");
         addressList.add("대전 서구 갈마역로 10 두양리체스");
@@ -144,6 +151,27 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         addressList.add("대전 유성구 대학로163번길 37");
         addressList.add("대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
 
+        textList.add("텍사스 스타일 바베큐와 브리스킷, 대전의 로우앤슬로우");
+        textList.add("전국구 텐동 맛집, 서울에서도 흔하지 않은 퀄리티");
+        textList.add("여름엔 시원한 붓카케 냉우동, 가라아게가 진짜 맛있음");
+        textList.add("가성비 좋은 무한리필 곱창, 볶음밥은 필수");
+        textList.add("줄서서 먹는 소국밥, 회전율이 좋아 육사시미가 신선함");
+        textList.add("어은동에 있는 돈카츠 맛집, 밥과 면은 무한리필");
+        textList.add("대구 막창보다 맛있다는 막창집, 된장찌개와의 궁합이 최고");
+        textList.add("궁동에서 막걸리에 전은 여기, 진짜 정통 막거리 맛집");
+        textList.add("양 많고 맛있는 멕시코 음식, 소프트파코보다는 하드타코 추천");
+        textList.add("한국 스타일 태국 음식의 정점, 고수 못 먹어도 상관없음");
+
+        image_list.add(R.drawable.img11);
+        image_list.add(R.drawable.img21);
+        image_list.add(R.drawable.img31);
+        image_list.add(R.drawable.img41);
+        image_list.add(R.drawable.img51);
+        image_list.add(R.drawable.img61);
+        image_list.add(R.drawable.img71);
+        image_list.add(R.drawable.img81);
+        image_list.add(R.drawable.img91);
+        image_list.add(R.drawable.img101);
 
         try {
             missing = getActivity().findViewById(R.id.missingText);
@@ -180,7 +208,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
             snip = "대전 유성구 대학로 291";
         }
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 18);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 14);
         googleMap.animateCamera(cameraUpdate);
         googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
@@ -277,14 +305,33 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                 title.setGravity(Gravity.CENTER);
                 title.setTypeface(null, Typeface.BOLD);
                 title.setText(marker.getTitle());
+                info.addView(title);
 
+                /*
                 TextView snippet = new TextView(getContext());
                 snippet.setTextColor(Color.GRAY);
                 snippet.setGravity(Gravity.CENTER);
                 snippet.setText(marker.getSnippet());
+                info.addView(snippet); */
 
-                info.addView(title);
-                info.addView(snippet);
+                cardView.setVisibility(View.VISIBLE);
+                nameCard = rootView.findViewById(R.id.nameCard);
+                nameCard.setText(marker.getTitle());
+                addressCard = rootView.findViewById(R.id.addressCard);
+                addressCard.setText(marker.getSnippet());
+                explainCard = rootView.findViewById(R.id.explainCard);
+                explainCard.setText(textList.get(markerList.indexOf(marker.getTitle())));
+                imageCard = rootView.findViewById(R.id.map_image);
+                imageCard.setImageResource(image_list.get(markerList.indexOf(marker.getTitle())));
+
+                closeButton = rootView.findViewById(R.id.closeButton);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        cardView.setVisibility(View.GONE);
+                    }
+                });
+
 
                 return info;
             }
@@ -300,10 +347,12 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
             String markerId = marker.getId();
             Log.d("markerId", markerId);
 
+
+/*
             dialog = new CustomDialog(getContext());
             dialog.show();
 
-            /*
+
             FeedTemplate params = FeedTemplate
                     .newBuilder(ContentObject.newBuilder("동행_지하철어플리케이션",
                                     "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/191/791/81191791_1555664874860_1_600x600.JPG",
