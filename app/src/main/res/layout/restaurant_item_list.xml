@@ -56,9 +56,10 @@
                     android:id="@+id/restaurant_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="10dp"
-                    android:fontFamily="@font/gmarketsansttfbold"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/gmarketsansttflght"
+                    android:textColor="#A91D37"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -68,10 +69,12 @@
                     android:layout_height="wrap_content"
                     android:gravity="right"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="25dp"
                     android:textSize="15sp"
-                    android:textColor="#0000FF"
+                    android:textColor="#A91D37"
                     android:textStyle="bold"
+                    android:fontFamily="@font/gmarketsansttflght"
                     android:text="메뉴 보기"/>
 
             </LinearLayout>
@@ -80,7 +83,10 @@
                 android:id="@+id/restaurant_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/gmarketsansttflght"
+                android:fontFamily="@font/gmarketsansttfbold"
+                android:textSize="12sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_margin="10dp" />
 
         </LinearLayout>
