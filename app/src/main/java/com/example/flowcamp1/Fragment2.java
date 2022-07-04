@@ -34,8 +34,8 @@ public class Fragment2 extends Fragment {
                 new MyRestaurantData("태평소국밥", "줄서서 먹는 소국밥, 회전율이 좋아 육사시미가 신선함", R.drawable.img51, R.drawable.img52, R.drawable.img53, R.drawable.img54, R.drawable.img59),
                 new MyRestaurantData("다다카츠", "어은동에 있는 돈카츠 맛집, 밥과 면은 무한리필", R.drawable.img61, R.drawable.img62, R.drawable.img63, R.drawable.img64, R.drawable.img69),
                 new MyRestaurantData("달구지막창", "대구 막창보다 맛있다는 막창집, 된장찌개와의 궁합이 최고", R.drawable.img71, R.drawable.img72, R.drawable.img73, R.drawable.img74, R.drawable.img79),
-                new MyRestaurantData("주전자", "궁동에서 막걸리에 전은 여기, 진짜 정통 막거리 맛집", R.drawable.img81, R.drawable.img82, R.drawable.img83, R.drawable.img84, R.drawable.img89),
-                new MyRestaurantData("리코타코", "양 많고 맛있는 멕시코 음식, 소프트파코보다는 하드타코 추천", R.drawable.img91, R.drawable.img92, R.drawable.img93, R.drawable.img94, R.drawable.img99),
+                new MyRestaurantData("주전자", "궁동에서 막걸리에 전은 여기, 진짜 정통 막걸리 맛집", R.drawable.img81, R.drawable.img82, R.drawable.img83, R.drawable.img84, R.drawable.img89),
+                new MyRestaurantData("리코타코", "양 많고 맛있는 멕시코 음식, 소프트타코보다는 하드타코 추천", R.drawable.img91, R.drawable.img92, R.drawable.img93, R.drawable.img94, R.drawable.img99),
                 new MyRestaurantData("잇마이타이", "한국 스타일 태국 음식의 정점, 고수 못 먹어도 상관없음", R.drawable.img101, R.drawable.img102, R.drawable.img103, R.drawable.img104, R.drawable.img109),
         };
 
