@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -84,7 +85,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         mapView.getMapAsync((com.google.android.gms.maps.OnMapReadyCallback) this);
         cardView = rootView.findViewById(R.id.cardView);
 
-        com.google.android.material.textfield.TextInputLayout searchEditText = rootView.findViewById(R.id.searchEditText);
+        EditText searchEditText = rootView.findViewById(R.id.searchEditText);
         Button clickButton = rootView.findViewById(R.id.searchButton);
         final Geocoder geocoder = new Geocoder(this.getContext());
 
@@ -92,7 +93,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 List<Address> list = null;
-                str = searchEditText.getEditText().getText().toString();
+                str = searchEditText.getText().toString();
                 try {
                     list = geocoder.getFromLocationName(
                             str, 10);
@@ -113,7 +114,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                                 .title(str));
                     }
                 }
-                searchEditText.getEditText().setText("");
+                searchEditText.setText("");
             }
         });
 

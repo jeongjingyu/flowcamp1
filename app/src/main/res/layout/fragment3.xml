@@ -14,19 +14,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
                 android:id="@+id/searchEditText"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="Search"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/gmarketsansttflght"
+                android:hint="SEARCH"/>
 
             <Button
                 android:id="@+id/searchButton"
@@ -105,7 +101,7 @@
                         android:background="@drawable/circlebutton"
                         android:fontFamily="@font/gmarketsansttfmedium"
                         android:backgroundTint="#C3C3C3"
-                        android:drawableTop="@drawable/close"
+                        android:drawableTop="@drawable/share"
                         android:paddingTop="3dp" />
 
                 </FrameLayout>

@@ -12,6 +12,7 @@
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/item_slider.xml" value="0.2047008547008547" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/layout/slide_item_container.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/drawable-anydpi/close.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/circlebutton.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/person.xml" value="0.113" />
@@ -23,7 +24,7 @@
         <entry key="app/src/main/res/layout/dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment2.xml" value="0.11041666666666666" />
-        <entry key="app/src/main/res/layout/fragment3.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment3.xml" value="0.17993079584775087" />
         <entry key="app/src/main/res/layout/listview.xml" value="0.2568862915039063" />
         <entry key="app/src/main/res/layout/mapcardview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/menu_popup.xml" value="0.1" />
