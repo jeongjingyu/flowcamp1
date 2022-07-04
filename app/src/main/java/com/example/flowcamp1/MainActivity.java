@@ -1,6 +1,7 @@
 package com.example.flowcamp1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     String idx_str;
     TextView missing;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigationView.setSelectedItemId(R.id.image);
         replaceFragment(new Fragment2());
         missing = findViewById(R.id.missingText);
+
+        toolbar = findViewById(R.id.myToolBar);
+        toolbar.setTitle("카슐랭가이드");
+        setSupportActionBar(toolbar);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
