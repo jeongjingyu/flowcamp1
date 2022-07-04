@@ -14,21 +14,22 @@
         <entry key="..\:/Users/jjg05/AndroidStudioProjects/flowcamp1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24947916666666667" />
         <entry key="app/src/main/res/drawable-anydpi/close.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_gradient.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/border.xml" value="0.1045" />
         <entry key="app/src/main/res/drawable/circlebutton.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/person.xml" value="0.113" />
         <entry key="app/src/main/res/font/font.xml" value="0.24166666666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1738525390625" />
         <entry key="app/src/main/res/layout/activity_start_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/childlistview.xml" value="0.2917984008789063" />
         <entry key="app/src/main/res/layout/circlebutton.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment1.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment2.xml" value="0.11041666666666666" />
-        <entry key="app/src/main/res/layout/fragment3.xml" value="0.17993079584775087" />
+        <entry key="app/src/main/res/layout/fragment3.xml" value="0.1" />
         <entry key="app/src/main/res/layout/listview.xml" value="0.2568862915039063" />
         <entry key="app/src/main/res/layout/mapcardview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/menu_popup.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/restaurant_item_list.xml" value="0.484375" />
+        <entry key="app/src/main/res/layout/restaurant_item_list.xml" value="0.1" />
       </map>
     </option>
   </component>

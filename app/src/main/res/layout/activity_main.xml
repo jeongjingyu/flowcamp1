@@ -29,11 +29,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/gmarketsansttflght"
+                    android:gravity="center"
+                    android:letterSpacing="0.1"
                     android:text="카슐랭 가이드"
                     android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"/>
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -46,6 +48,7 @@
         android:id="@+id/frame"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@drawable/border"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

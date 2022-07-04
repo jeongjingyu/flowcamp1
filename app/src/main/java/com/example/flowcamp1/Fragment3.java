@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -124,7 +125,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
 
-        Log.d("onMapReady","onMapReady");
         this.googleMap = googleMap;
         MapsInitializer.initialize(this.getActivity());
         final Geocoder geocoder = new Geocoder(this.getContext());
@@ -218,12 +218,41 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         // 줌 컨트롤 활성화
         googleMap.getUiSettings().setZoomControlsEnabled(true);
 
+        // 3초 딜레이용
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (indx != -1) {
+                    cardView.setVisibility(View.VISIBLE);
+                    nameCard = rootView.findViewById(R.id.nameCard);
+                    nameCard.setText(str);
+                    addressCard = rootView.findViewById(R.id.addressCard);
+                    addressCard.setText(addressList.get(indx));
+                    explainCard = rootView.findViewById(R.id.explainCard);
+                    explainCard.setText(textList.get(markerList.indexOf(str)));
+                    imageCard = rootView.findViewById(R.id.map_image);
+                    imageCard.setImageResource(image_list.get(markerList.indexOf(str)));
+
+                    closeButton = rootView.findViewById(R.id.closeButton);
+                    closeButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            cardView.setVisibility(View.GONE);
+                        }
+                    });
+                } else {
+                    cardView.setVisibility(View.GONE);
+                } // end else
+        } // end run()
+    },3000);
+
         // 마커 추가
         addStarMarker(36.3624677, 127.358096, "하바쿡", "대전 유성구 대학로 227 어은빌딩2층");
         addStarMarker(36.3525892, 127.373436, "와탸요업", "대전 서구 갈마역로25번길 9-8 1층 와타요업");
         addStarMarker(36.3591389, 127.376888, "토미야", "대전 서구 청사서로 14");
         addStarMarker(36.3512542, 127.373831, "할머니딸생양곱창", "대전 서구 갈마역로 10 두양리체스");
-        addStarMarker(36.3574714, 127.350218, "태평소국밥", "대전 서구 둔산로31번길 52 덕삼빌딩 1층 102호");
+        addStarMarker(36.3574714, 127.350218, "태평소국밥", "대전 유성구 온천동로65번길 50");
         addStarMarker(36.3635414, 127.357655, "다다카츠", "대전 유성구 어은로52번길 7 1층");
         addStarMarker(36.3620220, 127.353403, "달구지막창", "대전 유성구 어은로57번길 59");
         addStarMarker(36.3626669, 127.351668, "주전자", "대전 유성구 궁동로18번길 78");
@@ -314,25 +343,28 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                 snippet.setText(marker.getSnippet());
                 info.addView(snippet); */
 
-                cardView.setVisibility(View.VISIBLE);
-                nameCard = rootView.findViewById(R.id.nameCard);
-                nameCard.setText(marker.getTitle());
-                addressCard = rootView.findViewById(R.id.addressCard);
-                addressCard.setText(marker.getSnippet());
-                explainCard = rootView.findViewById(R.id.explainCard);
-                explainCard.setText(textList.get(markerList.indexOf(marker.getTitle())));
-                imageCard = rootView.findViewById(R.id.map_image);
-                imageCard.setImageResource(image_list.get(markerList.indexOf(marker.getTitle())));
+                try {
+                    cardView.setVisibility(View.VISIBLE);
+                    nameCard = rootView.findViewById(R.id.nameCard);
+                    nameCard.setText(marker.getTitle());
+                    addressCard = rootView.findViewById(R.id.addressCard);
+                    addressCard.setText(marker.getSnippet());
+                    explainCard = rootView.findViewById(R.id.explainCard);
+                    explainCard.setText(textList.get(markerList.indexOf(marker.getTitle())));
+                    imageCard = rootView.findViewById(R.id.map_image);
+                    imageCard.setImageResource(image_list.get(markerList.indexOf(marker.getTitle())));
 
-                closeButton = rootView.findViewById(R.id.closeButton);
-                closeButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        cardView.setVisibility(View.GONE);
-                    }
-                });
-
-
+                    closeButton = rootView.findViewById(R.id.closeButton);
+                    closeButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            cardView.setVisibility(View.GONE);
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    cardView.setVisibility(View.GONE);
+                }
                 return info;
             }
         });

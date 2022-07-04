@@ -29,7 +29,8 @@
                     <ImageView
                         android:id="@+id/restaurant_image1"
                         android:layout_width="400dp"
-                        android:layout_height="225dp"/>
+                        android:layout_height="225dp" />
+
                     <ImageView
                         android:id="@+id/restaurant_image2"
                         android:layout_width="400dp"
@@ -50,6 +51,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -60,6 +66,7 @@
                     android:layout_marginStart="15dp"
                     android:fontFamily="@font/gmarketsansttflght"
                     android:textColor="#A91D37"
+                    android:text="text"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -70,24 +77,30 @@
                     android:gravity="right"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="25dp"
+                    android:layout_marginEnd="20dp"
                     android:textSize="15sp"
                     android:textColor="#A91D37"
                     android:textStyle="bold"
                     android:fontFamily="@font/gmarketsansttflght"
                     android:text="메뉴 보기"/>
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/restaurant_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gmarketsansttflght"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:text="text"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"/>
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/restaurant_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gmarketsansttfbold"
-                android:textSize="12sp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_margin="10dp" />
+
 
         </LinearLayout>
 
