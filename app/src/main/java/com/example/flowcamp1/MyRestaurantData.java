@@ -9,14 +9,16 @@ public class MyRestaurantData {
     private Integer restaurantImage2;
     private Integer restaurantImage3;
     private Integer restaurantImage4;
+    private Integer restaurantMenu;
 
-    public MyRestaurantData(String restaurantName, String restaurantText, Integer restaurantImage1, Integer restaurantImage2, Integer restaurantImage3, Integer restaurantImage4) {
+    public MyRestaurantData(String restaurantName, String restaurantText, Integer restaurantImage1, Integer restaurantImage2, Integer restaurantImage3, Integer restaurantImage4, Integer restaurantMenu) {
         this.restaurantName = restaurantName;
         this.restaurantText = restaurantText;
         this.restaurantImage1 = restaurantImage1;
         this.restaurantImage2 = restaurantImage2;
         this.restaurantImage3 = restaurantImage3;
         this.restaurantImage4 = restaurantImage4;
+        this.restaurantMenu = restaurantMenu;
     }
 
     public String getRestaurantName() {
@@ -65,5 +67,13 @@ public class MyRestaurantData {
 
     public void setRestaurantImage4(Integer restaurantImage4) {
         this.restaurantImage4 = restaurantImage4;
+    }
+
+    public Integer getRestaurantMenu() {
+        return restaurantMenu;
+    }
+
+    public void setRestaurantMenu(Integer restaurantMenu) {
+        this.restaurantMenu = restaurantMenu;
     }
 }

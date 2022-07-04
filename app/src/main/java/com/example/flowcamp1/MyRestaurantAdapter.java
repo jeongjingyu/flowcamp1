@@ -1,6 +1,10 @@
 package com.example.flowcamp1;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -44,6 +48,24 @@ public class MyRestaurantAdapter extends RecyclerView.Adapter<MyRestaurantAdapte
         holder.restaurantImage2.setImageResource(myRestaurantDataList.getRestaurantImage2());
         holder.restaurantImage3.setImageResource(myRestaurantDataList.getRestaurantImage3());
         holder.restaurantImage4.setImageResource(myRestaurantDataList.getRestaurantImage4());
+
+        holder.getMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(view.getContext());
+                dialog.setContentView(R.layout.menu_popup);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                ImageView imageView = dialog.findViewById(R.id.restaurant_menu);
+                imageView.setImageResource(myRestaurantDataList.getRestaurantMenu());
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
     }
 
     @Override
@@ -58,6 +80,7 @@ public class MyRestaurantAdapter extends RecyclerView.Adapter<MyRestaurantAdapte
         ImageView restaurantImage4;
         TextView restaurantName;
         TextView restaurantText;
+        TextView getMenu;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +90,7 @@ public class MyRestaurantAdapter extends RecyclerView.Adapter<MyRestaurantAdapte
             restaurantImage4 = itemView.findViewById(R.id.restaurant_image4);
             restaurantName = itemView.findViewById(R.id.restaurant_name);
             restaurantText = itemView.findViewById(R.id.restaurant_text);
+            getMenu = itemView.findViewById(R.id.get_menu);
         }
     }
 }
