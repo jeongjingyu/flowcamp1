@@ -158,8 +158,8 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         textList.add("줄서서 먹는 소국밥, 회전율이 좋아 육사시미가 신선함");
         textList.add("어은동에 있는 돈카츠 맛집, 밥과 면은 무한리필");
         textList.add("대구 막창보다 맛있다는 막창집, 된장찌개와의 궁합이 최고");
-        textList.add("궁동에서 막걸리에 전은 여기, 진짜 정통 막거리 맛집");
-        textList.add("양 많고 맛있는 멕시코 음식, 소프트파코보다는 하드타코 추천");
+        textList.add("궁동에서 막걸리에 전은 여기, 진짜 정통 막걸리 맛집");
+        textList.add("양 많고 맛있는 멕시코 음식, 소프트타코보다는 하드타코 추천");
         textList.add("한국 스타일 태국 음식의 정점, 고수 못 먹어도 상관없음");
 
         image_list.add(R.drawable.img11);
@@ -228,7 +228,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         addStarMarker(36.3626669, 127.351668, "주전자", "대전 유성구 궁동로18번길 78");
         addStarMarker(36.3621901, 127.351421, "리코타코", "대전 유성구 대학로163번길 37");
         addStarMarker(36.3636368, 127.358915, "잇마이타이", "대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
-
     }
 
     @Override

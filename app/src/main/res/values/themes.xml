@@ -14,5 +14,9 @@
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
+        <item name="android:textViewStyle">@font/gmarketsansttfmedium</item>
+        <item name="android:buttonStyle">@font/gmarketsansttfbold</item>
+        <item name="android:editTextStyle">@font/gmarketsansttfmedium</item>
     </style>
 </resources>
