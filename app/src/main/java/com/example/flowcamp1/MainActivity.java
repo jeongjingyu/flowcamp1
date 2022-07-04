@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         missing = findViewById(R.id.missingText);
 
         toolbar = findViewById(R.id.myToolBar);
-        toolbar.setTitle("카슐랭가이드");
         setSupportActionBar(toolbar);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
