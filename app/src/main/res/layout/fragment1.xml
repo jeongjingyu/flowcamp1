@@ -21,7 +21,6 @@
             android:layout_marginStart="20dp"
             android:src="@drawable/search"/>
 
-
         <EditText
             android:id="@+id/searchEditText"
             android:layout_width="match_parent"
