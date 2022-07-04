@@ -46,7 +46,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     double latitude = 36.37421833;
     String str = "카이스트 IT융합빌딩";
     Dialog dialog;
-    String res_name;
+    String res_name = null;
     int indx;
     TextView missing;
     ArrayList<String> markerList = new ArrayList<String>();
@@ -142,7 +142,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         addressList.add("대전 유성구 대학로163번길 37");
         addressList.add("대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
 
-
         missing = getActivity().findViewById(R.id.missingText);
         if (missing.getText().toString() != "text") {
             indx = Integer.parseInt(missing.getText().toString());
@@ -194,6 +193,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         addStarMarker(36.3626669, 127.351668, "주전자", "대전 유성구 궁동로18번길 78");
         addStarMarker(36.3621901, 127.351421, "리코타코", "대전 유성구 대학로163번길 37");
         addStarMarker(36.3636368, 127.358915, "잇마이타이", "대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
+
     }
 
     @Override
@@ -239,6 +239,12 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     }
 
     public void addStarMarker(double latitude, double longitude, String title, String str) {
+
+        // fragment1에서 넘어온 좌표는 star marker 추가 안 함
+        if (res_name == title) {
+            return;
+        }
+
         BitmapDrawable bd = (BitmapDrawable) getContext().getResources().getDrawable(R.drawable.star2);
         Bitmap b = bd.getBitmap();
         Bitmap starMarker = Bitmap.createScaledBitmap(b, 80, 80, false);
@@ -247,7 +253,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
 
         // 정보창
         googleMap.setOnInfoWindowClickListener(infoWindowClickListener);
-
         googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 
             @Override
@@ -277,33 +282,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                 return info;
             }
         });
-
-    }
-
-    public void search(String str) {
-        List<Address> list = null;
-        final Geocoder geocoder = new Geocoder(this.getContext());
-        try {
-            str = res_name;
-            list = geocoder.getFromLocationName(
-                    str, 10);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (list != null) {
-            if (list.size() == 0) {
-                Log.v("no", "없단다");
-            } else {
-                latitude = list.get(0).getLatitude();
-                longitude = list.get(0).getLongitude();
-                com.google.android.gms.maps.CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new com.google.android.gms.maps.model.LatLng(list.get(0).getLatitude(), list.get(0).getLongitude()), 18);
-                googleMap.animateCamera(cameraUpdate);
-                googleMap.addMarker(new MarkerOptions()
-                        .position(new com.google.android.gms.maps.model.LatLng(latitude, longitude))
-                        .title(str));
-            }
-        }
     }
 
     // 정보창 클릭 리스너
