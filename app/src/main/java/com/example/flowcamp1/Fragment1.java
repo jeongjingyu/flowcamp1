@@ -1,6 +1,5 @@
 package com.example.flowcamp1;
 
-import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.text.Editable;
@@ -42,6 +41,8 @@ public class Fragment1 extends Fragment {
     MainActivity mainActivity;
     private ArrayList<String> list;
     private List<String> arraylist;
+    Fragment3 fragment;
+    Bundle bundle;
 
     public Fragment1() {
 
@@ -60,7 +61,6 @@ public class Fragment1 extends Fragment {
         View tabOneView = inflater.inflate(R.layout.fragment1, container, false);
         View expandableListview = inflater.inflate(R.layout.listview, container, false);
         list = new ArrayList<String>();
-
 
         try {
             InputStream is = assetManager.open("phone_num.json");
@@ -182,6 +182,14 @@ public class Fragment1 extends Fragment {
                         expandableListAdapter = new ListViewAdapter(getContext(), items, child);
                         listview.setAdapter(expandableListAdapter);
                     }
+                }
+
+                public Fragment3 createBundle(String a, String b) {
+                    fragment = new Fragment3();
+                    bundle=new Bundle();
+                    bundle.putString(a, b);
+                    fragment.setArguments(bundle);
+                    return fragment;
                 }
             });
             } catch (IOException | JSONException e) {

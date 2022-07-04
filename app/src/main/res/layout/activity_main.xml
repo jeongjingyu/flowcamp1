@@ -17,6 +17,13 @@
 
     </FrameLayout>
 
+    <TextView
+        android:id="@+id/missingText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="text"
+        tools:ignore="MissingConstraints" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"

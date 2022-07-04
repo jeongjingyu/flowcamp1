@@ -6,14 +6,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.flowcamp1.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    Bundle bundle;
+    Fragment3 fragment3;
+    String idx_str;
+    TextView missing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         binding.bottomNavigationView.setSelectedItemId(R.id.image);
         replaceFragment(new Fragment2());
+        missing = findViewById(R.id.missingText);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
@@ -49,7 +56,20 @@ public class MainActivity extends AppCompatActivity {
     public void showMapFragment(int idx, Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fragment);
+        binding.bottomNavigationView.setSelectedItemId(R.id.map);
+        fragmentTransaction.show(fragment);
+        //fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
+
+        missing.setText(Integer.toString(idx));
+        Log.d("missing", missing.getText().toString());
+
+        bundle = new Bundle();
+        idx_str = Integer.toString(idx);
+        bundle.putString("position", idx_str);
+        fragment3 = new Fragment3();
+        fragment3.setArguments(bundle);
+        Log.d("bundle", String.valueOf(bundle.getString("position")));
+
     }
 }

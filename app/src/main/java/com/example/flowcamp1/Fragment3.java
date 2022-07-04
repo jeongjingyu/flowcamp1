@@ -1,49 +1,40 @@
 package com.example.flowcamp1;
 
-import android.Manifest;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.PointF;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
-import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Fragment3 extends Fragment implements OnMapReadyCallback {
@@ -51,12 +42,15 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     View rootView;
     com.google.android.gms.maps.MapView mapView;
     GoogleMap googleMap;
-    String where;
     double longitude = 127.36583434;
     double latitude = 36.37421833;
     String str = "카이스트 IT융합빌딩";
     Dialog dialog;
-
+    String res_name;
+    int indx;
+    TextView missing;
+    ArrayList<String> markerList = new ArrayList<String>();
+    ArrayList<String> addressList = new ArrayList<String>();
 
     public Fragment3() {
 
@@ -69,12 +63,14 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        Log.d("oncreateview","oncreateview");
         rootView = inflater.inflate(R.layout.fragment3, container, false);
         mapView = (com.google.android.gms.maps.MapView) rootView.findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
@@ -102,7 +98,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                     } else {
                         latitude = list.get(0).getLatitude();
                         longitude = list.get(0).getLongitude();
-                        com.google.android.gms.maps.CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new com.google.android.gms.maps.model.LatLng(list.get(0).getLatitude(), list.get(0).getLongitude()), 18);
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new com.google.android.gms.maps.model.LatLng(list.get(0).getLatitude(), list.get(0).getLongitude()), 18);
                         googleMap.animateCamera(cameraUpdate);
                         googleMap.addMarker(new MarkerOptions()
                                 .position(new com.google.android.gms.maps.model.LatLng(latitude, longitude))
@@ -117,14 +113,45 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
+
+        Log.d("onMapReady","onMapReady");
         this.googleMap = googleMap;
         MapsInitializer.initialize(this.getActivity());
         final Geocoder geocoder = new Geocoder(this.getContext());
 
+        //마커 리스트
+        markerList.add("하바쿡");
+        markerList.add("와탸요업");
+        markerList.add("토미야");
+        markerList.add("할머니딸생양곱창");
+        markerList.add("태평소국밥");
+        markerList.add("다다카츠");
+        markerList.add("달구지막창");
+        markerList.add("주전자");
+        markerList.add("리코타코");
+        markerList.add("잇마이타이");
+
+        addressList.add("대전 유성구 대학로 227 어은빌딩2층");
+        addressList.add("대전 서구 갈마역로25번길 9-8 1층 와타요업");
+        addressList.add("대전 서구 청사서로 14");
+        addressList.add("대전 서구 갈마역로 10 두양리체스");
+        addressList.add("대전 서구 둔산로31번길 52 덕삼빌딩 1층 102호");
+        addressList.add("대전 유성구 어은로52번길 7 1층");
+        addressList.add("대전 유성구 어은로57번길 59");
+        addressList.add("대전 유성구 궁동로18번길 78");
+        addressList.add("대전 유성구 대학로163번길 37");
+        addressList.add("대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
+
+
+        missing = getActivity().findViewById(R.id.missingText);
+        if (missing.getText().toString() != "text") {
+            indx = Integer.parseInt(missing.getText().toString());
+            res_name = markerList.get(indx);
+            str = res_name;
+        }
+
         try {
             List<Address> list = null;
-            str = where;
-            Log.v("str_Cc", str);
             try {
                 list = geocoder.getFromLocationName(
                         str, 10);
@@ -147,11 +174,11 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
             str = "카이스트 IT융합빌딩";
         }
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 14);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 18);
         googleMap.animateCamera(cameraUpdate);
         googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
-                .title(str));
+                .title(str).snippet(addressList.get(indx)));
 
         // 줌 컨트롤 활성화
         googleMap.getUiSettings().setZoomControlsEnabled(true);
@@ -167,7 +194,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         addStarMarker(36.3626669, 127.351668, "주전자", "대전 유성구 궁동로18번길 78");
         addStarMarker(36.3621901, 127.351421, "리코타코", "대전 유성구 대학로163번길 37");
         addStarMarker(36.3636368, 127.358915, "잇마이타이", "대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
-
     }
 
     @Override
@@ -252,6 +278,32 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
             }
         });
 
+    }
+
+    public void search(String str) {
+        List<Address> list = null;
+        final Geocoder geocoder = new Geocoder(this.getContext());
+        try {
+            str = res_name;
+            list = geocoder.getFromLocationName(
+                    str, 10);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (list != null) {
+            if (list.size() == 0) {
+                Log.v("no", "없단다");
+            } else {
+                latitude = list.get(0).getLatitude();
+                longitude = list.get(0).getLongitude();
+                com.google.android.gms.maps.CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new com.google.android.gms.maps.model.LatLng(list.get(0).getLatitude(), list.get(0).getLongitude()), 18);
+                googleMap.animateCamera(cameraUpdate);
+                googleMap.addMarker(new MarkerOptions()
+                        .position(new com.google.android.gms.maps.model.LatLng(latitude, longitude))
+                        .title(str));
+            }
+        }
     }
 
     // 정보창 클릭 리스너
