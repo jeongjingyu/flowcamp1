@@ -45,9 +45,10 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     double longitude = 127.36583434;
     double latitude = 36.37421833;
     String str = "카이스트 IT융합빌딩";
+    String snip = "대전 유성구 대학로 291";
     Dialog dialog;
     String res_name = null;
-    int indx;
+    int indx = -1;
     TextView missing;
     ArrayList<String> markerList = new ArrayList<String>();
     ArrayList<String> addressList = new ArrayList<String>();
@@ -105,6 +106,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                                 .title(str));
                     }
                 }
+                searchEditText.getEditText().setText("");
             }
         });
 
@@ -142,11 +144,14 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         addressList.add("대전 유성구 대학로163번길 37");
         addressList.add("대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
 
-        missing = getActivity().findViewById(R.id.missingText);
-        if (missing.getText().toString() != "text") {
+
+        try {
+            missing = getActivity().findViewById(R.id.missingText);
             indx = Integer.parseInt(missing.getText().toString());
             res_name = markerList.get(indx);
             str = res_name;
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
 
         try {
@@ -166,18 +171,20 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                     longitude = list.get(0).getLongitude();
                 }
             }
+            snip = addressList.get(indx);
         } catch (Exception e) {
             e.printStackTrace();
             longitude = 127.36583434;
             latitude = 36.37421833;
             str = "카이스트 IT융합빌딩";
+            snip = "대전 유성구 대학로 291";
         }
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 18);
         googleMap.animateCamera(cameraUpdate);
         googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
-                .title(str).snippet(addressList.get(indx)));
+                .title(str).snippet(snip));
 
         // 줌 컨트롤 활성화
         googleMap.getUiSettings().setZoomControlsEnabled(true);
@@ -295,6 +302,37 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
 
             dialog = new CustomDialog(getContext());
             dialog.show();
+
+            /*
+            FeedTemplate params = FeedTemplate
+                    .newBuilder(ContentObject.newBuilder("동행_지하철어플리케이션",
+                                    "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/191/791/81191791_1555664874860_1_600x600.JPG",
+                                    LinkObject.newBuilder().setWebUrl("https://developers.kakao.com")
+                                            .setMobileWebUrl("https://developers.kakao.com").build())
+                            .setDescrption("목적지에 후 도착합니다.")
+                            .build())
+                    .addButton(new ButtonObject("웹에서 보기", LinkObject.newBuilder().setWebUrl("https://developers.kakao.com").setMobileWebUrl("https://developers.kakao.com").build()))
+                    .addButton(new ButtonObject("앱에서 보기", LinkObject.newBuilder()
+                            .setWebUrl("https://developers.kakao.com")
+                            .setMobileWebUrl("https://developers.kakao.com")
+                            .setAndroidExecutionParams("key1=value1")
+                            .setIosExecutionParams("key1=value1")
+                            .build()))
+                    .build();
+
+            Map<String, String> serverCallbackArgs = new HashMap<String, String>();
+            serverCallbackArgs.put("user_id", "${current_user_id}");
+            serverCallbackArgs.put("product_id", "${shared_product_id}");
+
+
+            KakaoLinkService.getInstance().sendDefault(this, params, new ResponseCallback <KakaoLinkResponse>() {
+                @Override
+                public void onFailure(ErrorResult errorResult) {}
+
+                @Override
+                public void onSuccess(KakaoLinkResponse result) {
+                }
+            }); */
 
 /*
             SmsManager sms = SmsManager.getDefault();

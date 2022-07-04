@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,8 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -28,6 +31,7 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
     ArrayList<String> child_text;
     String tel = null;
     int position = -1;
+    ArrayList<Integer> image_list = new ArrayList<Integer>();
 
 
     public ListViewAdapter(Context context, ArrayList<list_form> items, HashMap<String, ArrayList<String>> child) {
@@ -79,11 +83,24 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
             view = inflater.inflate(R.layout.listview, viewGroup, false);
         }
 
+        image_list.add(R.drawable.img11);
+        image_list.add(R.drawable.img21);
+        image_list.add(R.drawable.img31);
+        image_list.add(R.drawable.img41);
+        image_list.add(R.drawable.img51);
+        image_list.add(R.drawable.img61);
+        image_list.add(R.drawable.img71);
+        image_list.add(R.drawable.img81);
+        image_list.add(R.drawable.img91);
+        image_list.add(R.drawable.img101);
+
         TextView name = (TextView) view.findViewById(R.id.nameTextView);
         TextView num = (TextView) view.findViewById(R.id.numTextView);
+        de.hdodenhof.circleimageview.CircleImageView restaurantImageView = view.findViewById(R.id.restaurantImageView);
 
         name.setText(items.get(i).name);
         num.setText(items.get(i).num);
+        restaurantImageView.setImageResource(image_list.get(i));
 
         return view;
     }
