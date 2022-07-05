@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:background="@drawable/borderbottom"
     android:layout_margin="50dp"
     android:layout_marginBottom="30dp">
 
@@ -31,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:fontFamily="@font/gmarketsansttfbold"
+            android:fontFamily="@font/gmarketsansttfmedium"
             android:text="name"
             android:textSize="20dp"
             android:textStyle="bold"

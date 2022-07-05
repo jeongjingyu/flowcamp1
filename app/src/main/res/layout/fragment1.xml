@@ -33,15 +33,15 @@
 
     </LinearLayout>
 
-    <ExpandableListView
-        android:id="@+id/expandablelistView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:divider="@android:color/darker_gray"
-        android:fontFamily="@font/gmarketsansttflght"
-        android:dividerHeight="0.5dp"
-        android:groupIndicator="@null" />
+        <ExpandableListView
+            android:id="@+id/expandablelistView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="0.5dp"
+            android:fontFamily="@font/gmarketsansttflght"
+            android:groupIndicator="@null" />
 
     </LinearLayout>
 
