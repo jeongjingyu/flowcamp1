@@ -68,7 +68,7 @@
                     android:fontFamily="@font/gmarketsansttflght"
                     android:textColor="#A91D37"
                     android:text="최진엽등촌샤브샤브"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <RatingBar
