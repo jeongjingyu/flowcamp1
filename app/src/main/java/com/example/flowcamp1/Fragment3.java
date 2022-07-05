@@ -121,6 +121,39 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                         redMarker = googleMap.addMarker(new MarkerOptions()
                                 .position(new com.google.android.gms.maps.model.LatLng(latitude, longitude))
                                 .title(str));
+
+                        try {
+                            cardView.setVisibility(View.VISIBLE);
+                            nameCard = rootView.findViewById(R.id.nameCard);
+                            nameCard.setText(str);
+                            addressCard = rootView.findViewById(R.id.addressCard);
+                            addressCard.setText(addressList.get(markerList.indexOf(str)));
+                            explainCard = rootView.findViewById(R.id.explainCard);
+                            explainCard.setText(textList.get(markerList.indexOf(str)));
+                            imageCard = rootView.findViewById(R.id.map_image);
+                            imageCard.setImageResource(image_list.get(markerList.indexOf(str)));
+
+                            closeButton = rootView.findViewById(R.id.closeButton);
+                            closeButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    cardView.setVisibility(View.GONE);
+                                }
+                            });
+
+                            shareButton = rootView.findViewById(R.id.sendButton);
+                            shareButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+                                    dialog = new CustomDialog(getContext(), str, addressList.get(markerList.indexOf(str)));
+                                    dialog.show();
+                                }
+                            });
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            cardView.setVisibility(View.GONE);
+                        }
                     }
                 }
 
