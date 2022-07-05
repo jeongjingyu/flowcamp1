@@ -5,15 +5,17 @@ import java.util.List;
 public class MyRestaurantData {
     private String restaurantName;
     private String restaurantText;
+    private Integer rating;
     private Integer restaurantImage1;
     private Integer restaurantImage2;
     private Integer restaurantImage3;
     private Integer restaurantImage4;
     private Integer restaurantMenu;
 
-    public MyRestaurantData(String restaurantName, String restaurantText, Integer restaurantImage1, Integer restaurantImage2, Integer restaurantImage3, Integer restaurantImage4, Integer restaurantMenu) {
+    public MyRestaurantData(String restaurantName, String restaurantText, Integer rating, Integer restaurantImage1, Integer restaurantImage2, Integer restaurantImage3, Integer restaurantImage4, Integer restaurantMenu) {
         this.restaurantName = restaurantName;
         this.restaurantText = restaurantText;
+        this.rating = rating;
         this.restaurantImage1 = restaurantImage1;
         this.restaurantImage2 = restaurantImage2;
         this.restaurantImage3 = restaurantImage3;
@@ -35,6 +37,14 @@ public class MyRestaurantData {
 
     public void setRestaurantText(String restaurantText) {
         this.restaurantText = restaurantText;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 
     public Integer getRestaurantImage1() {
