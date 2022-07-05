@@ -40,7 +40,7 @@
 
 **홈 탭(갤러리)**
 
-<img src="https://user-images.githubusercontent.com/58676453/177267193-3680e4f6-1fc8-439b-a2c6-7ad75534dd52.png" width="500"/>
+<img src="https://user-images.githubusercontent.com/90249027/177301275-84ca1824-f765-4101-8e86-b521217366a0.png" width="500"/>
 
 
 - 앱 시작 시 홈 탭으로 시작
@@ -50,6 +50,9 @@
 - '메뉴 보기'에 onClickListener로 각 식당의 대표 메뉴판 이미지가 Dialog로 팝업 가능하도록 구현, 다시 이미지 클릭 시 Dialog dismiss
 
 **예약 탭(연락처)**
+
+<img src="https://user-images.githubusercontent.com/90249027/177301109-5e7beccb-1134-45ff-a079-a05edefbbc00.png" width="500"/>
+
 
 - ExpandableListView 활용
 - json 형식으로 저장한 카이스트 주변 맛집 13곳의 정보(연락처, 평균 가격, 평점, 운영시간 등)를 파싱
@@ -62,6 +65,7 @@
 
 **지도 탭**
 
+<img src="https://user-images.githubusercontent.com/90249027/177301368-be888144-874a-4bab-aaf8-18e28dd8cbe5.png" width="500"/>
 
 - GoogleMap API 활용
 - 카이스트 IT융합빌딩을 중심으로 지도 구현
