@@ -9,6 +9,9 @@
 
 성균관대학교 글로벌융합학부 [우다연](https://github.com/yeonyeonn)
 
+
+
+
 ## Concept
 
 '5년차 카이스트생이 추천하는 카이스트 맛집 13선'
@@ -17,11 +20,16 @@
 
 2022년 대전에서 시작된 카슐랭 가이드는 손님으로 위장한 5년차 카이스트생의 평가에 따라 카이스트 앞 최고의 식당을 선정한다.
 
+
+
+
 ## Brief Overview
 
 - 엄선한 13곳의 카이스트 맛집에 대한 정보와 한줄평을 확인
 - 맛집 연락처 확인 및 예약 전화 기능
 - 지도를 통해 해당 맛집 위치 확인 및 외부 공유 기능
+
+
 
 ## Detailed Description
 
@@ -32,11 +40,15 @@
 - LottieFiles를 통해 lottie animation 다운로드 후 배치
 - 화면 중간에서 3초 동안 반복해서 animation 진행되도록 display, 앱 아이콘 화면 하단에 배치
 
+
+
 **Bottom Navigation Bar & Action Bar**
 
 - BottomNavigationBar를 통해 화면 하단에 3개의 탭(예약, 홈, 지도) 구현
 - ActionBar를 통해 화면 상단에 title bar 구현
 - ActionBar와 BottomNavigationBar 사이 공간에 Fragment 배치, 각 탭 클릭 시 해당 탭에 대한 Fragment로 이동
+
+
 
 **홈 탭(갤러리)**
 
@@ -48,6 +60,8 @@
 - 각 CardView에 식당 사진 리스트, 식당 이름, 식당 한줄평, 메뉴 보기 텍스트 배치
 - 식당 사진 리스트는 CardView 안에 ScrollView로 각 4개의 사진이 horizontal scroll을 통해 확인할 수 있도록 구현
 - '메뉴 보기'에 onClickListener로 각 식당의 대표 메뉴판 이미지가 Dialog로 팝업 가능하도록 구현, 다시 이미지 클릭 시 Dialog dismiss
+
+
 
 **예약 탭(연락처)**
 
@@ -63,6 +77,8 @@
 - 검색 시 검색어에 해당하는 가게만 ListView에 뜰 수 있도록 함
 
 
+
+
 **지도 탭**
 
 <img src="https://user-images.githubusercontent.com/90249027/177301368-be888144-874a-4bab-aaf8-18e28dd8cbe5.png" width="500"/>
@@ -74,6 +90,9 @@
 - CardView 좌측 상단의 'X' 버튼 클릭 시 CardView 닫힘
 - CardView 우측 상단의 '공유' 버튼 클릭 시 전송할 메시지 내용을 입력하는 Dialog가 팝업됨
 - Dialog에서 메시지 내용 작성 완료 후 '보내기' 버튼 클릭 시 카카오톡, 문자메시지, 메일 등의 외부 애플리케이션으로 공유 가능 (Intent 활용)
+
+
+
 
 
 ## User Scenario
