@@ -7,6 +7,7 @@
 성균관대학교 글로벌융합학부 [우다연](https://github.com/yeonyeonn)
 
 ## Concept
+
 '5년차 카이스트생이 추천하는 카이스트 맛집 13선'
 
 1900년 프랑스에서 시작된 미슐랭 가이드는 손님으로 위장한 전담요원의 평가에 따라 세계 최고의 식당을 선정한다.
@@ -35,7 +36,10 @@
 - ActionBar와 BottomNavigationBar 사이 공간에 Fragment 배치, 각 탭 클릭 시 해당 탭에 대한 Fragment로 이동
 
 **홈 탭(갤러리)**
+
 <img src="https://user-images.githubusercontent.com/58676453/177264244-c2e86413-35ed-4e99-842c-57d86f7025e4.png" width="200"/>
+<img scr="https://user-images.githubusercontent.com/58676453/177265372-f87b5cba-c52c-4390-81e2-829ab24fe212.jpg" width="200"/>
+
 
 - 앱 시작 시 홈 탭으로 시작
 - RecyclerView 위에 CardView 구현
