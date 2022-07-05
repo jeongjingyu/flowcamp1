@@ -36,7 +36,7 @@
 
 **홈 탭(갤러리)**
 
-<스크린샷>
+![image](https://user-images.githubusercontent.com/58676453/177264244-c2e86413-35ed-4e99-842c-57d86f7025e4.png)
 
 - 앱 시작 시 홈 탭으로 시작
 - RecyclerView 위에 CardView 구현
