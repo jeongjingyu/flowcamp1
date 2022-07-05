@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,6 +54,7 @@ public class MyRestaurantAdapter extends RecyclerView.Adapter<MyRestaurantAdapte
         final MyRestaurantData myRestaurantDataList = myRestaurantData[position];
         holder.restaurantName.setText(myRestaurantDataList.getRestaurantName());
         holder.restaurantText.setText(myRestaurantDataList.getRestaurantText());
+        holder.rating.setRating(myRestaurantDataList.getRating());
         holder.restaurantImage1.setImageResource(myRestaurantDataList.getRestaurantImage1());
         holder.restaurantImage2.setImageResource(myRestaurantDataList.getRestaurantImage2());
         holder.restaurantImage3.setImageResource(myRestaurantDataList.getRestaurantImage3());
@@ -100,6 +102,7 @@ public class MyRestaurantAdapter extends RecyclerView.Adapter<MyRestaurantAdapte
         ImageView restaurantImage4;
         TextView restaurantName;
         TextView restaurantText;
+        RatingBar rating;
         TextView getMenu;
         CardView cardView;
 
@@ -111,6 +114,7 @@ public class MyRestaurantAdapter extends RecyclerView.Adapter<MyRestaurantAdapte
             restaurantImage4 = itemView.findViewById(R.id.restaurant_image4);
             restaurantName = itemView.findViewById(R.id.restaurant_name);
             restaurantText = itemView.findViewById(R.id.restaurant_text);
+            rating = itemView.findViewById(R.id.ratingBar);
             getMenu = itemView.findViewById(R.id.get_menu);
             cardView = itemView.findViewById(R.id.cardView);
 
