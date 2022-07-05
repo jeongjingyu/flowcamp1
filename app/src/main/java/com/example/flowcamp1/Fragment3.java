@@ -419,7 +419,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
             return;
         }
 
-        BitmapDrawable bd = (BitmapDrawable) getContext().getResources().getDrawable(R.drawable.star2);
+        BitmapDrawable bd = (BitmapDrawable) getContext().getResources().getDrawable(R.drawable.mi);
         Bitmap b = bd.getBitmap();
         Bitmap starMarker = Bitmap.createScaledBitmap(b, 80, 80, false);
         googleMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory
