@@ -1,5 +1,8 @@
 # 카슐랭 가이드
 
+<img src="https://user-images.githubusercontent.com/58676453/177293995-292cacaf-c4ba-4991-b233-c2ea4bf08718.png" width="500"/>
+
+
 ## Contributor
 
 카이스트 산업및시스템공학과 [정진규](https://github.com/jeongjingyu)
