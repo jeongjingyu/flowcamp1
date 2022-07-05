@@ -23,18 +23,29 @@
             android:gravity="center"
             android:minHeight="?attr/actionBarSize">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:layout_marginEnd="15dp"
-                android:fontFamily="@font/gmarketsansttflght"
-                android:gravity="center"
-                android:letterSpacing="0.1"
-                android:text="카슐랭 가이드"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/img0"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/gmarketsansttflght"
+                    android:letterSpacing="0.1"
+                    android:text="카슐랭 가이드"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
