@@ -49,12 +49,10 @@
             android:textColor="@color/black" />
     </LinearLayout>
 
-    <!--
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"/>
-
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -65,7 +63,7 @@
         android:rating="3"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
-        android:isIndicator="true"/>  -->
+        android:isIndicator="true"/>
 
 
 </LinearLayout>

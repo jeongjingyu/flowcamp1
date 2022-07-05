@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
@@ -23,7 +24,6 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
     private Context context;
     private ArrayList<list_form> items;
     private HashMap<String, ArrayList<String>> child;
-    Fragment1 fragment1 = new Fragment1();
     MainActivity mainActivity;
     private ExpandableListView listview = null;
     androidx.appcompat.widget.AppCompatButton callButton;
@@ -97,12 +97,14 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
         image_list.add(R.drawable.img11);
         image_list.add(R.drawable.img111);
 
+        RatingBar ratingBar = view.findViewById(R.id.ratingBar);
         TextView name = (TextView) view.findViewById(R.id.nameTextView);
         TextView num = (TextView) view.findViewById(R.id.numTextView);
         de.hdodenhof.circleimageview.CircleImageView restaurantImageView = view.findViewById(R.id.restaurantImageView);
 
         name.setText(items.get(i).name);
         num.setText(items.get(i).num);
+        ratingBar.setRating(Float.parseFloat(items.get(i).rate));
         restaurantImageView.setImageResource(image_list.get(i));
 
         return view;
@@ -123,12 +125,10 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
 
         TextView time = (TextView) view.findViewById(R.id.timeTextView);
         TextView food = (TextView) view.findViewById(R.id.foodTextView);
-        TextView rate = (TextView) view.findViewById(R.id.rateTextView);
         TextView price = (TextView) view.findViewById(R.id.priceTextView);
 
         food.setText(items.get(i).food);
         time.setText("운영시간 : " + items.get(i).start + " ~ " + items.get(i).end);
-        rate.setText("평점 : " + items.get(i).rate);
         price.setText("평균 : " + items.get(i).price);
 
         mapButton = view.findViewById(R.id.mapButton);
