@@ -6,9 +6,9 @@
         android:id="@+id/phone_number"
         android:title="예약"/>
     <item
-        android:icon="@drawable/ic_baseline_image_24"
+        android:icon="@drawable/ic_baseline_home_24"
         android:id="@+id/image"
-        android:title="갤러리"/>
+        android:title="홈"/>
     <item
         android:icon="@drawable/ic_baseline_map_24"
         android:id="@+id/map"
