@@ -17,9 +17,6 @@ import com.example.flowcamp1.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    Bundle bundle;
-    Fragment3 fragment3;
-    String idx_str;
     TextView missing;
 
     private Toolbar toolbar;
