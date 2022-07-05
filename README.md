@@ -27,7 +27,7 @@
 
 **Start Screen**
 
-<스크린샷>
+<img src="https://user-images.githubusercontent.com/90249027/177301603-abef0cb3-31e0-44ea-a812-f62071d50618.png" width="200"/>
 
 - LottieFiles를 통해 lottie animation 다운로드 후 배치
 - 화면 중간에서 3초 동안 반복해서 animation 진행되도록 display, 앱 아이콘 화면 하단에 배치
