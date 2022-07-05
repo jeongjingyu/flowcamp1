@@ -37,8 +37,7 @@
 
 **홈 탭(갤러리)**
 
-<img src="https://user-images.githubusercontent.com/58676453/177264244-c2e86413-35ed-4e99-842c-57d86f7025e4.png" width="200"/>
-<img src="https://user-images.githubusercontent.com/58676453/177265372-f87b5cba-c52c-4390-81e2-829ab24fe212.jpg" width="200"/>
+<img src="https://user-images.githubusercontent.com/58676453/177267193-3680e4f6-1fc8-439b-a2c6-7ad75534dd52.png" width="500"/>
 
 
 - 앱 시작 시 홈 탭으로 시작
