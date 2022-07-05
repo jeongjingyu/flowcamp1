@@ -66,6 +66,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     com.makeramen.roundedimageview.RoundedImageView imageCard;
     androidx.appcompat.widget.AppCompatButton closeButton;
     androidx.appcompat.widget.AppCompatButton shareButton;
+    Marker redMarker = null;
 
     public Fragment3() {
     }
@@ -82,7 +83,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         rootView = inflater.inflate(R.layout.fragment3, container, false);
         mapView = (com.google.android.gms.maps.MapView) rootView.findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
@@ -113,11 +113,51 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                         longitude = list.get(0).getLongitude();
                         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new com.google.android.gms.maps.model.LatLng(list.get(0).getLatitude(), list.get(0).getLongitude()), 14);
                         googleMap.animateCamera(cameraUpdate);
-                        googleMap.addMarker(new MarkerOptions()
+
+                        if (redMarker != null) {
+                            redMarker.remove();
+                        }
+
+                        redMarker = googleMap.addMarker(new MarkerOptions()
                                 .position(new com.google.android.gms.maps.model.LatLng(latitude, longitude))
                                 .title(str));
                     }
                 }
+
+                try {
+                    if (str == "최진엽등촌샤브샤브") {
+                        latitude = 36.3626823;
+                        longitude = 127.349607;
+                    } else if (str == "주전자") {
+                        latitude = 36.3626669;
+                        longitude = 127.351668;
+                    } else if (str == "태평소국밥") {
+                        latitude = 36.3573903;
+                        longitude = 127.350324;
+                    } else if (str.substring(0,3) == "호우섬") {
+                        latitude = 36.3749609;
+                        longitude = 127.381940;
+                    } else if (str == "잇마이타이") {
+                        latitude = 36.3636368;
+                        longitude = 127.358915;
+                    } else if (str == "다다카츠") {
+                        latitude = 36.3635414;
+                        longitude = 127.357655;
+                    } else if (str.substring(0,4) == "서브웨이") {
+                        latitude = 36.3712149;
+                        longitude = 127.362207;
+                    }
+
+                    snip = addressList.get(indx);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    longitude = 127.36583434;
+                    latitude = 36.37421833;
+                    str = "카이스트 IT융합빌딩";
+                    snip = "대전 유성구 대학로 291";
+                }
+
+
                 searchEditText.setText("");
             }
         });
@@ -251,7 +291,12 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         // fragment1에서 넘어올 때
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 14);
         googleMap.animateCamera(cameraUpdate);
-        googleMap.addMarker(new MarkerOptions()
+
+        if (redMarker != null) {
+            redMarker.remove();
+        }
+
+        redMarker = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
                 .title(str).snippet(snip));
 
@@ -311,7 +356,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
 
         // 마커 추가
         addStarMarker(36.3624677, 127.358096, "하바쿡", "대전 유성구 대학로 227 어은빌딩2층");
-        addStarMarker(36.3525892, 127.373436, "와탸요업", "대전 서구 갈마역로25번길 9-8 1층 와타요업");
+        addStarMarker(36.3525892, 127.373436, "와타요업", "대전 서구 갈마역로25번길 9-8 1층 와타요업");
         addStarMarker(36.3591389, 127.376888, "토미야", "대전 서구 청사서로 14");
         addStarMarker(36.3512542, 127.373831, "할머니딸생양곱창", "대전 서구 갈마역로 10 두양리체스");
         addStarMarker(36.3573903, 127.350324, "태평소국밥", "대전 유성구 온천동로65번길 50");
