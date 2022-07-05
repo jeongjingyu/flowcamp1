@@ -144,62 +144,61 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         final Geocoder geocoder = new Geocoder(this.getContext());
 
         //마커 리스트
-        markerList.add("하바쿡");
-        markerList.add("와탸요업");
-        markerList.add("토미야");
-        markerList.add("할머니딸생양곱창");
-        markerList.add("태평소국밥");
-        markerList.add("다다카츠");
-        markerList.add("달구지막창");
-        markerList.add("주전자");
+        markerList.add("최진엽등촌샤브샤브");
         markerList.add("리코타코");
         markerList.add("잇마이타이");
-        markerList.add("서브웨이");
+        markerList.add("달구지막창");
+        markerList.add("주전자");
+        markerList.add("태평소국밥");
+        markerList.add("할머니딸생양곱창");
         markerList.add("호우섬");
-        markerList.add("최진엽등촌샤브샤브");
+        markerList.add("다다카츠");
+        markerList.add("와타요업");
+        markerList.add("토미야");
+        markerList.add("하바쿡");
+        markerList.add("서브웨이");
 
-        addressList.add("대전 유성구 대학로 227 어은빌딩 2층");
-        addressList.add("대전 서구 갈마역로25번길 9-8 1층 와타요업");
-        addressList.add("대전 서구 청사서로 14");
-        addressList.add("대전 서구 갈마역로 10 두양리체스");
-        addressList.add("대전 유성구 온천동로65번길 50");
-        addressList.add("대전 유성구 어은로52번길 7 1층");
-        addressList.add("대전 유성구 어은로57번길 59");
-        addressList.add("대전 유성구 궁동로18번길 78");
-        addressList.add("대전 유성구 대학로163번길 37");
-        addressList.add("대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
-        addressList.add("대전 유성구 대학로 291 정문술빌딩 1층");
-        addressList.add("대전 유성구 대덕대로 516 5층 호우섬 대전신세계Art&Science점");
-        addressList.add("대전 유성구 궁동로18번길 40 2층");
+        addressList.add("대전 유성구 궁동로18번길 40 2층"); //최진엽등촌샤브샤브
+        addressList.add("대전 유성구 대학로163번길 37"); // 리코타코
+        addressList.add("대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호"); // 잇마이타이
+        addressList.add("대전 유성구 어은로57번길 59"); // 달구지막창
+        addressList.add("대전 유성구 궁동로18번길 78"); // 주전자
+        addressList.add("대전 유성구 온천동로65번길 50"); //태평소국밥
+        addressList.add("대전 서구 갈마역로 10 두양리체스"); // 할머니딸생양곱창
+        addressList.add("대전 유성구 대덕대로 516 5층 호우섬 대전신세계Art&Science점"); //호우섬
+        addressList.add("대전 유성구 어은로52번길 7 1층"); // 다다카츠
+        addressList.add("대전 서구 갈마역로25번길 9-8 1층 와타요업"); // 와타요업
+        addressList.add("대전 서구 청사서로 14"); // 토미야
+        addressList.add("대전 유성구 대학로 227 어은빌딩 2층"); // 하바쿡
+        addressList.add("대전 유성구 대학로 291 정문술빌딩 1층"); //서브웨이
 
+        textList.add("충남대 앞 가성비 샤브샤브 성지, 소고기 샤브샤브가 6500원"); //등촌
+        textList.add("양 많고 맛있는 멕시코 음식, 소프트타코보다는 하드타코 추천"); //리코타코
+        textList.add("한국 스타일 태국 음식의 정점, 고수 못 먹어도 상관없음"); //잇마이타이
+        textList.add("대구 막창보다 맛있다는 막창집, 된장찌개와의 궁합이 최고"); //달구지막창
+        textList.add("궁동에서 막걸리에 전은 여기, 진짜 정통 막걸리 맛집"); //주전자
+        textList.add("줄서서 먹는 소국밥, 회전율이 좋아 육사시미가 신선함"); //태평소국밥
+        textList.add("가성비 좋은 무한리필 곱창, 볶음밥은 필수"); //할머니딸생양곱창
+        textList.add("홍콩 느낌 제대로 나는 딤섬 맛집, 비싼 가격과 그만한 값어치"); //호우섬
+        textList.add("어은동에 있는 돈카츠 맛집, 밥과 면은 무한리필"); //다다카츠
+        textList.add("전국구 텐동 맛집, 서울에서도 흔하지 않은 퀄리티"); // 와타요업
+        textList.add("여름엔 시원한 붓카케 냉우동, 가라아게가 진짜 맛있음"); //토미야
+        textList.add("텍사스 스타일 바베큐와 브리스킷, 대전의 로우앤슬로우"); // 하바쿡
+        textList.add("카이스트에서는 1등 점심, 익숙하지만 새로운 조합의 샌드위치"); //섭웨
 
-        textList.add("텍사스 스타일 바베큐와 브리스킷, 대전의 로우앤슬로우");
-        textList.add("전국구 텐동 맛집, 서울에서도 흔하지 않은 퀄리티");
-        textList.add("여름엔 시원한 붓카케 냉우동, 가라아게가 진짜 맛있음");
-        textList.add("가성비 좋은 무한리필 곱창, 볶음밥은 필수");
-        textList.add("줄서서 먹는 소국밥, 회전율이 좋아 육사시미가 신선함");
-        textList.add("어은동에 있는 돈카츠 맛집, 밥과 면은 무한리필");
-        textList.add("대구 막창보다 맛있다는 막창집, 된장찌개와의 궁합이 최고");
-        textList.add("궁동에서 막걸리에 전은 여기, 진짜 정통 막걸리 맛집");
-        textList.add("양 많고 맛있는 멕시코 음식, 소프트타코보다는 하드타코 추천");
-        textList.add("한국 스타일 태국 음식의 정점, 고수 못 먹어도 상관없음");
-        textList.add("카이스트에서는 1등 점심, 익숙하지만 새로운 조합의 샌드위치");
-        textList.add("홍콩 느낌 제대로 나는 딤섬 맛집, 비싼 가격과 그만한 값어치");
-        textList.add("충남대 앞 가성비 샤브샤브 성지, 소고기 샤브샤브가 6500원");
-
-        image_list.add(R.drawable.img11);
-        image_list.add(R.drawable.img21);
-        image_list.add(R.drawable.img31);
-        image_list.add(R.drawable.img41);
-        image_list.add(R.drawable.img51);
-        image_list.add(R.drawable.img61);
-        image_list.add(R.drawable.img71);
-        image_list.add(R.drawable.img81);
-        image_list.add(R.drawable.img91);
-        image_list.add(R.drawable.img101);
-        image_list.add(R.drawable.img111);
-        image_list.add(R.drawable.img121);
-        image_list.add(R.drawable.img131);
+        image_list.add(R.drawable.img131); //등촌
+        image_list.add(R.drawable.img91); //리코타코
+        image_list.add(R.drawable.img101); //잇마이타이
+        image_list.add(R.drawable.img71); //달구지
+        image_list.add(R.drawable.img81); //주전자
+        image_list.add(R.drawable.img51); //태평소
+        image_list.add(R.drawable.img41); //할머니딸생양
+        image_list.add(R.drawable.img121); //호우섬
+        image_list.add(R.drawable.img61); //다다카츠
+        image_list.add(R.drawable.img21); // 와타요업
+        image_list.add(R.drawable.img31); //토미야
+        image_list.add(R.drawable.img11); // 하바쿡
+        image_list.add(R.drawable.img111); //섭웨
 
         try {
             missing = getActivity().findViewById(R.id.missingText);
@@ -227,6 +226,30 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                     longitude = list.get(0).getLongitude();
                 }
             }
+
+            if (str == "최진엽등촌샤브샤브") {
+                latitude = 36.3626823;
+                longitude = 127.349607;
+            } else if (str == "주전자") {
+                latitude = 36.3626669;
+                longitude = 127.351668;
+            } else if (str == "태평소국밥") {
+                latitude = 36.3573903;
+                longitude = 127.350324;
+            } else if (str.substring(0,3) == "호우섬") {
+                latitude = 36.3749609;
+                longitude = 127.381940;
+            } else if (str == "잇마이타이") {
+                latitude = 36.3636368;
+                longitude = 127.358915;
+            } else if (str == "다다카츠") {
+                latitude = 36.3635414;
+                longitude = 127.357655;
+            } else if (str.substring(0,4) == "서브웨이") {
+                latitude = 36.3712149;
+                longitude = 127.362207;
+            }
+
             snip = addressList.get(indx);
         } catch (Exception e) {
             e.printStackTrace();
@@ -236,11 +259,19 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
             snip = "대전 유성구 대학로 291";
         }
 
+        // fragment1에서 넘어올 때
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 14);
         googleMap.animateCamera(cameraUpdate);
         googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(latitude, longitude))
                 .title(str).snippet(snip));
+
+        // 학교 아이콘
+        BitmapDrawable bd = (BitmapDrawable) getContext().getResources().getDrawable(R.drawable.now);
+        Bitmap b = bd.getBitmap();
+        Bitmap starMarker = Bitmap.createScaledBitmap(b, 80, 80, false);
+        googleMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory
+                .fromBitmap(starMarker)).position(new LatLng(36.37421833, 127.36583434)).title("카이스트 IT융합빌딩").snippet("대전 유성구 대학로 291"));
 
         // 줌 컨트롤 활성화
         googleMap.getUiSettings().setZoomControlsEnabled(true);
@@ -301,7 +332,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         addStarMarker(36.3621901, 127.351421, "리코타코", "대전 유성구 대학로163번길 37");
         addStarMarker(36.3636368, 127.358915, "잇마이타이", "대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
         addStarMarker(36.3712149, 127.362207, "서브웨이", "대전 유성구 대학로 291 정문술빌딩 1층");
-        addStarMarker(36.3749610, 127.381915, "호우섬", "대전 유성구 대덕대로 516 5층 호우섬 대전신세계Art&Science점");
+        addStarMarker(36.3749609, 127.381940, "호우섬", "대전 유성구 대덕대로 516 5층 호우섬 대전신세계Art&Science점");
         addStarMarker(36.3626823, 127.349607, "최진엽등촌샤브샤브", "대전 유성구 궁동로18번길 40 2층");
     }
 

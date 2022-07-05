@@ -83,19 +83,19 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
             view = inflater.inflate(R.layout.listview, viewGroup, false);
         }
 
-        image_list.add(R.drawable.img11);
-        image_list.add(R.drawable.img21);
-        image_list.add(R.drawable.img31);
-        image_list.add(R.drawable.img41);
-        image_list.add(R.drawable.img51);
-        image_list.add(R.drawable.img61);
-        image_list.add(R.drawable.img71);
-        image_list.add(R.drawable.img81);
+        image_list.add(R.drawable.img131);
         image_list.add(R.drawable.img91);
         image_list.add(R.drawable.img101);
-        image_list.add(R.drawable.img111);
+        image_list.add(R.drawable.img71);
+        image_list.add(R.drawable.img81);
+        image_list.add(R.drawable.img51);
+        image_list.add(R.drawable.img41);
         image_list.add(R.drawable.img121);
-        image_list.add(R.drawable.img131);
+        image_list.add(R.drawable.img61);
+        image_list.add(R.drawable.img21);
+        image_list.add(R.drawable.img31);
+        image_list.add(R.drawable.img11);
+        image_list.add(R.drawable.img111);
 
         TextView name = (TextView) view.findViewById(R.id.nameTextView);
         TextView num = (TextView) view.findViewById(R.id.numTextView);
