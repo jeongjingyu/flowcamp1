@@ -2,8 +2,9 @@
 
 ## Contributor
 
-카이스트 산업및시스템공학과 정진규
-성균관대학교 글로벌융합학부 우다연
+카이스트 산업및시스템공학과 [정진규](https://github.com/jeongjingyu)
+
+성균관대학교 글로벌융합학부 [우다연](https://github.com/yeonyeonn)
 
 ## Concept
 '5년차 카이스트생이 추천하는 카이스트 맛집 13선'
