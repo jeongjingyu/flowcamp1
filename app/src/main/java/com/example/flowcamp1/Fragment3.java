@@ -36,21 +36,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.kakao.sdk.common.util.KakaoCustomTabsClient;
-import com.kakao.sdk.share.ShareClient;
-import com.kakao.sdk.share.WebSharerClient;
-import com.kakao.sdk.template.model.Content;
-import com.kakao.sdk.template.model.FeedTemplate;
-import com.kakao.sdk.template.model.ItemContent;
-import com.kakao.sdk.template.model.ItemInfo;
-import com.kakao.sdk.template.model.Link;
-import com.kakao.sdk.template.model.Social;
-import com.kakao.sdk.user.UserApiClient;
 
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Fragment3 extends Fragment implements OnMapReadyCallback {
@@ -213,7 +202,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
             List<Address> list = null;
             try {
                 list = geocoder.getFromLocationName(
-                        str, 10);
+                        str, 15);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -267,9 +256,9 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                 .title(str).snippet(snip));
 
         // 학교 아이콘
-        BitmapDrawable bd = (BitmapDrawable) getContext().getResources().getDrawable(R.drawable.now);
+        BitmapDrawable bd = (BitmapDrawable) getContext().getResources().getDrawable(R.drawable.bluenow);
         Bitmap b = bd.getBitmap();
-        Bitmap starMarker = Bitmap.createScaledBitmap(b, 80, 80, false);
+        Bitmap starMarker = Bitmap.createScaledBitmap(b, 120, 120, false);
         googleMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory
                 .fromBitmap(starMarker)).position(new LatLng(36.37421833, 127.36583434)).title("카이스트 IT융합빌딩").snippet("대전 유성구 대학로 291"));
 

@@ -42,7 +42,7 @@ public class Fragment2 extends Fragment {
                 new MyRestaurantData("서브웨이", "카이스트에서는 1등 점심, 익숙하지만 새로운 조합의 샌드위치", R.drawable.img111, R.drawable.img112, R.drawable.img113, R.drawable.img114, R.drawable.img119)
         };
 
-        MyRestaurantAdapter myRestaurantAdapter = new MyRestaurantAdapter(myRestaurantData, recyclerView);
+        MyRestaurantAdapter myRestaurantAdapter = new MyRestaurantAdapter(getContext(), myRestaurantData, recyclerView);
         recyclerView.setAdapter(myRestaurantAdapter);
 
         return view;
