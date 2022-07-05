@@ -414,11 +414,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
 
     public void addStarMarker(double latitude, double longitude, String title, String str) {
 
-        // fragment1에서 넘어온 좌표는 star marker 추가 안 함
-        if (res_name == title) {
-            return;
-        }
-
         BitmapDrawable bd = (BitmapDrawable) getContext().getResources().getDrawable(R.drawable.mi);
         Bitmap b = bd.getBitmap();
         Bitmap starMarker = Bitmap.createScaledBitmap(b, 80, 80, false);
