@@ -35,7 +35,7 @@
 - ActionBar와 BottomNavigationBar 사이 공간에 Fragment 배치, 각 탭 클릭 시 해당 탭에 대한 Fragment로 이동
 
 **홈 탭(갤러리)**
-<img src="https://user-images.githubusercontent.com/58676453/177264244-c2e86413-35ed-4e99-842c-57d86f7025e4.png", width="200"/>
+<img src="https://user-images.githubusercontent.com/58676453/177264244-c2e86413-35ed-4e99-842c-57d86f7025e4.png" width="200"/>
 
 - 앱 시작 시 홈 탭으로 시작
 - RecyclerView 위에 CardView 구현
