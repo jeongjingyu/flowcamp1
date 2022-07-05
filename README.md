@@ -57,7 +57,7 @@
 
 - 앱 시작 시 홈 탭으로 시작
 - RecyclerView 위에 CardView 구현
-- 각 CardView에 식당 사진 리스트, 식당 이름, 식당 한줄평, 메뉴 보기 텍스트 배치
+- 각 CardView에 식당 사진 리스트, 식당 이름, 식당 한줄평, 식당 별점, 메뉴 보기 텍스트 배치
 - 식당 사진 리스트는 CardView 안에 ScrollView로 각 4개의 사진이 horizontal scroll을 통해 확인할 수 있도록 구현
 - '메뉴 보기'에 onClickListener로 각 식당의 대표 메뉴판 이미지가 Dialog로 팝업 가능하도록 구현, 다시 이미지 클릭 시 Dialog dismiss
 
@@ -69,7 +69,7 @@
 
 
 - ExpandableListView 활용
-- json 형식으로 저장한 카이스트 주변 맛집 13곳의 정보(연락처, 평균 가격, 평점, 운영시간 등)를 파싱
+- json 형식으로 저장한 카이스트 주변 맛집 13곳의 정보(연락처, 평균 가격, 별점, 운영시간 등)를 파싱
 - RatingBar를 활용하여 평점을 별로 표현함
 - ListView에서 각 Group 클릭 시 해당 가게에 대한 정보를 확인할 수 있도록 확장됨
 - Intent를 활용하여 'CALL' 버튼 클릭 시 해당 가게로 전화 걸기 가능
