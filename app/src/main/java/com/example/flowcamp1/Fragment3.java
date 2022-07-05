@@ -1,12 +1,15 @@
 package com.example.flowcamp1;
 
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.location.Geocoder;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -33,11 +36,21 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.kakao.sdk.common.util.KakaoCustomTabsClient;
+import com.kakao.sdk.share.ShareClient;
+import com.kakao.sdk.share.WebSharerClient;
+import com.kakao.sdk.template.model.Content;
+import com.kakao.sdk.template.model.FeedTemplate;
+import com.kakao.sdk.template.model.ItemContent;
+import com.kakao.sdk.template.model.ItemInfo;
+import com.kakao.sdk.template.model.Link;
+import com.kakao.sdk.template.model.Social;
+import com.kakao.sdk.user.UserApiClient;
 
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Fragment3 extends Fragment implements OnMapReadyCallback {
@@ -63,6 +76,7 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
     TextView explainCard;
     com.makeramen.roundedimageview.RoundedImageView imageCard;
     androidx.appcompat.widget.AppCompatButton closeButton;
+    androidx.appcompat.widget.AppCompatButton shareButton;
 
     public Fragment3() {
     }
@@ -140,17 +154,24 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         markerList.add("주전자");
         markerList.add("리코타코");
         markerList.add("잇마이타이");
+        markerList.add("서브웨이");
+        markerList.add("호우섬");
+        markerList.add("최진엽등촌샤브샤브");
 
         addressList.add("대전 유성구 대학로 227 어은빌딩 2층");
         addressList.add("대전 서구 갈마역로25번길 9-8 1층 와타요업");
         addressList.add("대전 서구 청사서로 14");
         addressList.add("대전 서구 갈마역로 10 두양리체스");
-        addressList.add("대전 서구 둔산로31번길 52 덕삼빌딩 1층 102호");
+        addressList.add("대전 유성구 온천동로65번길 50");
         addressList.add("대전 유성구 어은로52번길 7 1층");
         addressList.add("대전 유성구 어은로57번길 59");
         addressList.add("대전 유성구 궁동로18번길 78");
         addressList.add("대전 유성구 대학로163번길 37");
         addressList.add("대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
+        addressList.add("대전 유성구 대학로 291 정문술빌딩 1층");
+        addressList.add("대전 유성구 대덕대로 516 5층 호우섬 대전신세계Art&Science점");
+        addressList.add("대전 유성구 궁동로18번길 40 2층");
+
 
         textList.add("텍사스 스타일 바베큐와 브리스킷, 대전의 로우앤슬로우");
         textList.add("전국구 텐동 맛집, 서울에서도 흔하지 않은 퀄리티");
@@ -162,6 +183,9 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         textList.add("궁동에서 막걸리에 전은 여기, 진짜 정통 막걸리 맛집");
         textList.add("양 많고 맛있는 멕시코 음식, 소프트타코보다는 하드타코 추천");
         textList.add("한국 스타일 태국 음식의 정점, 고수 못 먹어도 상관없음");
+        textList.add("카이스트에서는 1등 점심, 익숙하지만 새로운 조합의 샌드위치");
+        textList.add("홍콩 느낌 제대로 나는 딤섬 맛집, 비싼 가격과 그만한 값어치");
+        textList.add("충남대 앞 가성비 샤브샤브 성지, 소고기 샤브샤브가 6500원");
 
         image_list.add(R.drawable.img11);
         image_list.add(R.drawable.img21);
@@ -173,6 +197,9 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         image_list.add(R.drawable.img81);
         image_list.add(R.drawable.img91);
         image_list.add(R.drawable.img101);
+        image_list.add(R.drawable.img111);
+        image_list.add(R.drawable.img121);
+        image_list.add(R.drawable.img131);
 
         try {
             missing = getActivity().findViewById(R.id.missingText);
@@ -241,6 +268,21 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                             cardView.setVisibility(View.GONE);
                         }
                     });
+
+                 shareButton = rootView.findViewById(R.id.sendButton);
+                    shareButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            shareButton = rootView.findViewById(R.id.sendButton);
+                            shareButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog = new CustomDialog(getContext(), str, addressList.get(indx));
+                                    dialog.show();
+                                }
+                            });
+                        }
+                    });
                 } else {
                     cardView.setVisibility(View.GONE);
                 } // end else
@@ -252,12 +294,15 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
         addStarMarker(36.3525892, 127.373436, "와탸요업", "대전 서구 갈마역로25번길 9-8 1층 와타요업");
         addStarMarker(36.3591389, 127.376888, "토미야", "대전 서구 청사서로 14");
         addStarMarker(36.3512542, 127.373831, "할머니딸생양곱창", "대전 서구 갈마역로 10 두양리체스");
-        addStarMarker(36.3574714, 127.350218, "태평소국밥", "대전 유성구 온천동로65번길 50");
+        addStarMarker(36.3573903, 127.350324, "태평소국밥", "대전 유성구 온천동로65번길 50");
         addStarMarker(36.3635414, 127.357655, "다다카츠", "대전 유성구 어은로52번길 7 1층");
         addStarMarker(36.3620220, 127.353403, "달구지막창", "대전 유성구 어은로57번길 59");
         addStarMarker(36.3626669, 127.351668, "주전자", "대전 유성구 궁동로18번길 78");
         addStarMarker(36.3621901, 127.351421, "리코타코", "대전 유성구 대학로163번길 37");
         addStarMarker(36.3636368, 127.358915, "잇마이타이", "대전 유성구 문화원로 77 그랑펠리체 상가 1층 103호");
+        addStarMarker(36.3712149, 127.362207, "서브웨이", "대전 유성구 대학로 291 정문술빌딩 1층");
+        addStarMarker(36.3749610, 127.381915, "호우섬", "대전 유성구 대덕대로 516 5층 호우섬 대전신세계Art&Science점");
+        addStarMarker(36.3626823, 127.349607, "최진엽등촌샤브샤브", "대전 유성구 궁동로18번길 40 2층");
     }
 
     @Override
@@ -316,7 +361,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                 .fromBitmap(starMarker)).position(new LatLng(latitude, longitude)).title(title).snippet(str));
 
         // 정보창
-        googleMap.setOnInfoWindowClickListener(infoWindowClickListener);
         googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 
             @Override
@@ -336,13 +380,6 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                 title.setText(marker.getTitle());
                 info.addView(title);
 
-                /*
-                TextView snippet = new TextView(getContext());
-                snippet.setTextColor(Color.GRAY);
-                snippet.setGravity(Gravity.CENTER);
-                snippet.setText(marker.getSnippet());
-                info.addView(snippet); */
-
                 try {
                     cardView.setVisibility(View.VISIBLE);
                     nameCard = rootView.findViewById(R.id.nameCard);
@@ -361,66 +398,25 @@ public class Fragment3 extends Fragment implements OnMapReadyCallback {
                             cardView.setVisibility(View.GONE);
                         }
                     });
+
+                    shareButton = rootView.findViewById(R.id.sendButton);
+                    shareButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            dialog = new CustomDialog(getContext(), marker.getTitle(), addressList.get(markerList.indexOf(marker.getTitle())));
+                            dialog.show();
+                        }
+                    });
                 } catch (Exception e) {
                     e.printStackTrace();
                     cardView.setVisibility(View.GONE);
                 }
+
                 return info;
             }
         });
     }
-
-    // 정보창 클릭 리스너
-
-    GoogleMap.OnInfoWindowClickListener infoWindowClickListener = new GoogleMap.OnInfoWindowClickListener() {
-        @Override
-        public void onInfoWindowClick(@NonNull Marker marker) {
-            String url = "www.naver.com";
-            String markerId = marker.getId();
-            Log.d("markerId", markerId);
-
-
-/*
-            dialog = new CustomDialog(getContext());
-            dialog.show();
-
-
-            FeedTemplate params = FeedTemplate
-                    .newBuilder(ContentObject.newBuilder("동행_지하철어플리케이션",
-                                    "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/191/791/81191791_1555664874860_1_600x600.JPG",
-                                    LinkObject.newBuilder().setWebUrl("https://developers.kakao.com")
-                                            .setMobileWebUrl("https://developers.kakao.com").build())
-                            .setDescrption("목적지에 후 도착합니다.")
-                            .build())
-                    .addButton(new ButtonObject("웹에서 보기", LinkObject.newBuilder().setWebUrl("https://developers.kakao.com").setMobileWebUrl("https://developers.kakao.com").build()))
-                    .addButton(new ButtonObject("앱에서 보기", LinkObject.newBuilder()
-                            .setWebUrl("https://developers.kakao.com")
-                            .setMobileWebUrl("https://developers.kakao.com")
-                            .setAndroidExecutionParams("key1=value1")
-                            .setIosExecutionParams("key1=value1")
-                            .build()))
-                    .build();
-
-            Map<String, String> serverCallbackArgs = new HashMap<String, String>();
-            serverCallbackArgs.put("user_id", "${current_user_id}");
-            serverCallbackArgs.put("product_id", "${shared_product_id}");
-
-
-            KakaoLinkService.getInstance().sendDefault(this, params, new ResponseCallback <KakaoLinkResponse>() {
-                @Override
-                public void onFailure(ErrorResult errorResult) {}
-
-                @Override
-                public void onSuccess(KakaoLinkResponse result) {
-                }
-            }); */
-
-/*
-            SmsManager sms = SmsManager.getDefault();
-            sms.sendTextMessage(phoneNumber, null, message, null, null);
-*/
-        }
-    };
 }
 
 

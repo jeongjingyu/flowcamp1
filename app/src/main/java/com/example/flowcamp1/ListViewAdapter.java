@@ -93,6 +93,9 @@ public class ListViewAdapter extends BaseExpandableListAdapter implements View.O
         image_list.add(R.drawable.img81);
         image_list.add(R.drawable.img91);
         image_list.add(R.drawable.img101);
+        image_list.add(R.drawable.img111);
+        image_list.add(R.drawable.img121);
+        image_list.add(R.drawable.img131);
 
         TextView name = (TextView) view.findViewById(R.id.nameTextView);
         TextView num = (TextView) view.findViewById(R.id.numTextView);

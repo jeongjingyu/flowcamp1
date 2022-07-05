@@ -75,7 +75,6 @@ public class Fragment1 extends Fragment {
             }
             // json 파일 내용이 string으로 변환되어 담김
             String phoneNumData = buffer.toString();
-            Log.d("json", phoneNumData);
 
             // json 데이터가 []로 시작하는 배열: JSONArray
             // 배열을 구성하는 각 요소 JSONObject
